@@ -41,6 +41,19 @@ gem "tzinfo-data"
 
 gem "devise"
 
+# ↓論理削除
+gem 'paranoia'
+
+gem 'pry-rails'
+
+# ↓エラーメッセージの日本語化
+gem 'rails-i18n'
+
+gem 'font-awesome-sass'
+
+# ↓ページング
+gem 'kaminari'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
