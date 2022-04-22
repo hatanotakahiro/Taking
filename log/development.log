@@ -402,3 +402,484 @@ Processing by RentalsController#index as HTML
 Completed 200 OK in 6ms (Views: 5.6ms | ActiveRecord: 0.0ms | Allocations: 1459)
 
 
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateEquipment (20220422104847)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "equipment" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "rental" boolean DEFAULT 0, "equipment" varchar NOT NULL, "code" varchar NOT NULL, "deleted_at" date, "rental_id" integer, "user_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_8d6fb21500"
+FOREIGN KEY ("rental_id")
+  REFERENCES "rentals" ("id")
+, CONSTRAINT "fk_rails_c09ca68143"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_equipment_on_rental_id" ON "equipment" ("rental_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_equipment_on_user_id" ON "equipment" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220422104847"]]
+  [1m[36mTRANSACTION (8.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateRentals (20220422111419)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "rentals" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "reserve_date" date, "return_date" date, "status" varchar, "apply" boolean, "rental_confirmation" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220422111419"]]
+  [1m[36mTRANSACTION (8.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (42.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (9.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DeviseCreateUsers (20220422101742)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "admin" boolean DEFAULT 0, "deleted_at" date, "reset_password_token" varchar, "reset_password_sent_at" datetime(6), "remember_created_at" datetime(6), "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220422101742"]]
+  [1m[36mTRANSACTION (8.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateEquipment (20220422104847)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "equipment" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "rental" boolean DEFAULT 0, "equipment" varchar NOT NULL, "code" varchar NOT NULL, "deleted_at" date, "rental_id" integer, "user_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_8d6fb21500"
+FOREIGN KEY ("rental_id")
+  REFERENCES "rentals" ("id")
+, CONSTRAINT "fk_rails_c09ca68143"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_equipment_on_rental_id" ON "equipment" ("rental_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_equipment_on_user_id" ON "equipment" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220422104847"]]
+  [1m[36mTRANSACTION (5.7ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateRentals (20220422111419)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "rentals" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "reserve_schedule_date" date, "return_schedule_date" date, "return_actual_date" date, "status" varchar, "apply" boolean, "rental_confirmation" boolean, "return_confirmation" boolean, "deleted_at" date, "user_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_2c7010c082"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_rentals_on_user_id" ON "rentals" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220422111419"]]
+  [1m[36mTRANSACTION (7.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-04-22 11:39:16.036845"], ["updated_at", "2022-04-22 11:39:16.036845"]]
+  [1m[36mTRANSACTION (7.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2022-04-22 20:47:13 +0900
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered rentals/index.html.erb within layouts/application (Duration: 3.1ms | Allocations: 320)
+  Rendered layout layouts/application.html.erb (Duration: 86.7ms | Allocations: 30200)
+Completed 200 OK in 106ms (Views: 93.7ms | ActiveRecord: 0.0ms | Allocations: 33410)
+
+
+Started GET "/" for ::1 at 2022-04-22 21:16:09 +0900
+Processing by RentalsController#index as HTML
+Completed 500 Internal Server Error in 24ms (Allocations: 3763)
+
+
+  
+NameError (uninitialized constant RentalsController::Test
+
+    @test = Test.includes(:user).order("created_at DESC")
+            ^^^^):
+  
+app/controllers/rentals_controller.rb:4:in `index'
+Started GET "/" for ::1 at 2022-04-22 21:17:02 +0900
+Processing by RentalsController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/rentals_controller.rb:4:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 11.9ms | Allocations: 2899)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 14.9ms | Allocations: 4109)
+  Rendered layout layouts/application.html.erb (Duration: 16.8ms | Allocations: 4204)
+Completed 500 Internal Server Error in 61ms (ActiveRecord: 0.7ms | Allocations: 7891)
+
+
+  
+ActionView::Template::Error (The asset "sympasee_logo.png" is not present in the asset pipeline.
+):
+    4:     <div class='search-bar-contents, col'>
+    5:       <div class='row align-items-center justify-content-center'>
+    6:         <div class='col'> 
+    7:           <%= link_to image_tag("sympasee_logo.png", size: '300x100', class:"sympasee-icon"), "/" %>
+    8:         </div>
+    9:       </div>
+   10:     </div>
+  
+app/views/shared/_header.html.erb:7
+app/views/rentals/index.html.erb:1
+Started GET "/" for ::1 at 2022-04-22 21:20:37 +0900
+Processing by RentalsController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/rentals_controller.rb:4:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 9.8ms | Allocations: 2847)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 13.4ms | Allocations: 3231)
+  Rendered layout layouts/application.html.erb (Duration: 14.8ms | Allocations: 3326)
+Completed 500 Internal Server Error in 39ms (ActiveRecord: 0.4ms | Allocations: 6308)
+
+
+  
+ActionView::Template::Error (The asset "sympasee_logo.png" is not present in the asset pipeline.
+):
+    4:     <div class='search-bar-contents, col'>
+    5:       <div class='row align-items-center justify-content-center'>
+    6:         <div class='col'> 
+    7:           <%= link_to image_tag("sympasee_logo.png", size: '300x100', class:"sympasee-icon"), "/" %>
+    8:         </div>
+    9:       </div>
+   10:     </div>
+  
+app/views/shared/_header.html.erb:7
+app/views/rentals/index.html.erb:1
+Started GET "/" for ::1 at 2022-04-22 21:21:52 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 5.0ms | Allocations: 1226)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 24.7ms | Allocations: 6936)
+  Rendered layout layouts/application.html.erb (Duration: 25.8ms | Allocations: 7031)
+Completed 500 Internal Server Error in 38ms (ActiveRecord: 0.0ms | Allocations: 7923)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `new_product_path' for #<ActionView::Base:0x0000000001a2c0>
+Did you mean?  new_password_path):
+    2: <div class='main'>
+    3: 
+    4: </div>
+    5:     <%= link_to(new_product_path, class: 'purchase-btn') do %> 
+    6:       <span class='purchase-btn-text'>出品する</span>
+    7:       <%= image_tag 'icon_camera.png' , size: '185x50' ,class: "purchase-btn-icon" %>
+    8:     <% end %>
+  
+app/views/rentals/index.html.erb:5
+Started GET "/" for ::1 at 2022-04-22 21:22:39 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 3.4ms | Allocations: 1089)
+  Rendered shared/_footer.html.erb (Duration: 8.5ms | Allocations: 2361)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 16.1ms | Allocations: 3880)
+  Rendered layout layouts/application.html.erb (Duration: 19.0ms | Allocations: 3974)
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 0.0ms | Allocations: 4857)
+
+
+  
+ActionView::Template::Error (The asset "SympaSee2.png" is not present in the asset pipeline.
+):
+    1: <div class='footer'>
+    2:   <%= link_to image_tag("SympaSee2.png", class:"logo-white"), "/" %>
+    3:   <p>© Sympasee</p>
+    4: </div>
+  
+app/views/shared/_footer.html.erb:2
+app/views/rentals/index.html.erb:5
+Started GET "/" for ::1 at 2022-04-22 21:23:23 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 1.9ms | Allocations: 1089)
+  Rendered shared/_footer.html.erb (Duration: 0.5ms | Allocations: 131)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 5.6ms | Allocations: 1643)
+  Rendered layout layouts/application.html.erb (Duration: 179.8ms | Allocations: 12404)
+Completed 500 Internal Server Error in 192ms (ActiveRecord: 0.0ms | Allocations: 13288)
+
+
+  
+ActionView::Template::Error (undefined method `javascript_pack_tag' for #<ActionView::Base:0x0000000001a9a0>
+Did you mean?  javascript_path
+               javascript_tag):
+    10:     <%# <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    11:     <%# ↓後で実験してみる。 %>
+    12:     <%= stylesheet_link_tag 'application', media: 'all'  %>
+    13:     <%= javascript_pack_tag 'application' %>
+    14: 
+    15:   <body>
+    16:     <%= yield %>
+  
+app/views/layouts/application.html.erb:13
+Started GET "/" for ::1 at 2022-04-22 21:24:05 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 3.0ms | Allocations: 1089)
+  Rendered shared/_footer.html.erb (Duration: 0.7ms | Allocations: 129)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 9.6ms | Allocations: 1641)
+  Rendered layout layouts/application.html.erb (Duration: 18.3ms | Allocations: 3417)
+Completed 200 OK in 27ms (Views: 24.7ms | ActiveRecord: 0.0ms | Allocations: 4339)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/assets/font-awesome-sprockets"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/assets/font-awesome"):
+  
+Started GET "/users/sign_in" for ::1 at 2022-04-22 21:24:10 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 1157.0ms | Allocations: 168866)
+  Rendered layout layouts/application.html.erb (Duration: 1160.9ms | Allocations: 168969)
+Completed 500 Internal Server Error in 1214ms (ActiveRecord: 1.8ms | Allocations: 176524)
+
+
+  
+ActionView::Template::Error (undefined method `email' for #<User id: nil, name: "", admin: false, deleted_at: nil, created_at: nil, updated_at: nil>):
+    3: <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    4:   <div class="field">
+    5:     <%= f.label :email %><br />
+    6:     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    7:   </div>
+    8: 
+    9:   <div class="field">
+  
+app/views/devise/sessions/new.html.erb:6
+app/views/devise/sessions/new.html.erb:3
+  
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/assets/font-awesome-sprockets"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/assets/font-awesome"):
+  
+Started GET "/users/sign_up" for ::1 at 2022-04-22 21:24:16 +0900
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.5ms | Allocations: 218)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 11.7ms | Allocations: 9323)
+  Rendered layout layouts/application.html.erb (Duration: 16.5ms | Allocations: 9417)
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 0.0ms | Allocations: 10702)
+
+
+  
+ActionView::Template::Error (undefined method `email' for #<User id: nil, name: "", admin: false, deleted_at: nil, created_at: nil, updated_at: nil>):
+     5: 
+     6:   <div class="field">
+     7:     <%= f.label :email %><br />
+     8:     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+     9:   </div>
+    10: 
+    11:   <div class="field">
+  
+app/views/devise/registrations/new.html.erb:8
+app/views/devise/registrations/new.html.erb:3
+  
+ActionController::RoutingError (No route matches [GET] "/assets/font-awesome"):
+  
+Started GET "/users/sign_up" for ::1 at 2022-04-22 21:24:22 +0900
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 23)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 8.6ms | Allocations: 8545)
+  Rendered layout layouts/application.html.erb (Duration: 9.5ms | Allocations: 8633)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.0ms | Allocations: 9247)
+
+
+  
+ActionView::Template::Error (undefined method `email' for #<User id: nil, name: "", admin: false, deleted_at: nil, created_at: nil, updated_at: nil>):
+     5: 
+     6:   <div class="field">
+     7:     <%= f.label :email %><br />
+     8:     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+     9:   </div>
+    10: 
+    11:   <div class="field">
+  
+app/views/devise/registrations/new.html.erb:8
+app/views/devise/registrations/new.html.erb:3
+Started GET "/users/sign_up" for ::1 at 2022-04-22 21:27:07 +0900
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.6ms | Allocations: 210)
+  Rendered devise/shared/_links.html.erb (Duration: 3.0ms | Allocations: 585)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 116.6ms | Allocations: 9508)
+  Rendered layout layouts/application.html.erb (Duration: 123.4ms | Allocations: 11250)
+Completed 200 OK in 135ms (Views: 132.9ms | ActiveRecord: 0.0ms | Allocations: 12493)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/assets/font-awesome-sprockets"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/assets/font-awesome"):
+  
+Started GET "/users/sign_in" for ::1 at 2022-04-22 21:27:15 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 233)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 62.5ms | Allocations: 2160)
+  Rendered layout layouts/application.html.erb (Duration: 73.2ms | Allocations: 3720)
+Completed 200 OK in 84ms (Views: 81.9ms | ActiveRecord: 0.0ms | Allocations: 4797)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/assets/font-awesome"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/assets/font-awesome-sprockets"):
+  
+Started GET "/users/sign_up" for ::1 at 2022-04-22 21:27:40 +0900
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 24)
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 78)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 4.0ms | Allocations: 1022)
+  Rendered layout layouts/application.html.erb (Duration: 9.6ms | Allocations: 2425)
+Completed 200 OK in 12ms (Views: 10.7ms | ActiveRecord: 0.0ms | Allocations: 3066)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/assets/font-awesome"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/assets/font-awesome-sprockets"):
+  
+Started GET "/users/sign_up" for ::1 at 2022-04-22 21:28:31 +0900
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.0ms | Allocations: 210)
+  Rendered devise/shared/_links.html.erb (Duration: 1.0ms | Allocations: 478)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 8.9ms | Allocations: 2253)
+  Rendered layout layouts/application.html.erb (Duration: 15.4ms | Allocations: 3992)
+Completed 200 OK in 35ms (Views: 33.6ms | ActiveRecord: 0.0ms | Allocations: 5231)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/font-awesome-sprockets"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/assets/font-awesome"):
+  
+Started GET "/users/sign_up" for ::1 at 2022-04-22 21:28:52 +0900
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 78)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1009)
+  Rendered layout layouts/application.html.erb (Duration: 10.7ms | Allocations: 2411)
+Completed 200 OK in 13ms (Views: 11.8ms | ActiveRecord: 0.0ms | Allocations: 3066)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/assets/font-awesome-sprockets"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/assets/font-awesome"):
+  
+Started GET "/users/sign_in" for ::1 at 2022-04-22 21:29:00 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 134)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 4.7ms | Allocations: 1499)
+  Rendered layout layouts/application.html.erb (Duration: 12.3ms | Allocations: 3057)
+Completed 200 OK in 24ms (Views: 21.8ms | ActiveRecord: 0.0ms | Allocations: 4066)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/assets/font-awesome-sprockets"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/assets/font-awesome"):
+  
+Started GET "/users/sign_up" for ::1 at 2022-04-22 21:29:03 +0900
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 78)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1009)
+  Rendered layout layouts/application.html.erb (Duration: 12.1ms | Allocations: 2412)
+Completed 200 OK in 16ms (Views: 13.6ms | ActiveRecord: 0.0ms | Allocations: 3058)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/assets/font-awesome-sprockets"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/assets/font-awesome"):
+  
+Started GET "/users/sign_up" for ::1 at 2022-04-22 21:29:17 +0900
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.9ms | Allocations: 211)
+  Rendered devise/shared/_links.html.erb (Duration: 1.1ms | Allocations: 478)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 9.8ms | Allocations: 2256)
+  Rendered layout layouts/application.html.erb (Duration: 18.0ms | Allocations: 3995)
+Completed 200 OK in 46ms (Views: 42.5ms | ActiveRecord: 0.0ms | Allocations: 5231)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/assets/font-awesome-sprockets"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/assets/font-awesome"):
+  
+Started GET "/users/sign_in" for ::1 at 2022-04-22 21:29:22 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 134)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.9ms | Allocations: 1498)
+  Rendered layout layouts/application.html.erb (Duration: 10.1ms | Allocations: 3056)
+Completed 200 OK in 22ms (Views: 18.6ms | ActiveRecord: 0.0ms | Allocations: 4128)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/assets/font-awesome-sprockets"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/assets/font-awesome"):
+  

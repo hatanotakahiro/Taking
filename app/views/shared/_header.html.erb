@@ -1,0 +1,54 @@
+<%# CSS・・・assets/stylesheets/shared/header.css %>
+<header class='top-page-header, container-fluid'>
+  <div class='row align-items-center justify-content-center'>
+    <div class='search-bar-contents, col'>
+      <div class='row align-items-center justify-content-center'>
+        <div class='col'> 
+          <%#= link_to image_tag("sympasee_logo.png", size: '300x100', class:"sympasee-icon"), "/" %>
+        </div>
+      </div>
+    </div>
+  <%# コンポーネントを追加 %>
+    <div class='nav, col'>
+      <div class='lists-left, row align-items-center justify-content-center'>
+
+        <div class='col-3 text-center'> 
+          <% if user_signed_in? %>        
+            <% unless current_user.admin? %>
+            <%= link_to 'フォロワーリスト', {controller: :users, action: :follower}, class: "brand-list, text-white" %>
+            <% else %>
+              <%= link_to '作品の追加', new_movie_path, class: "brand-list, text-white" %>
+            <% end %>
+          <% end %>
+        </div> 
+
+        <div class='col-3 text-center'> 
+          <% if user_signed_in? %>
+            <% unless current_user.admin? %>
+              <%= link_to 'フォローリスト', {controller: :users, action: :follow}, class: "brand-list, text-white" %>
+            <% end %>
+          <% end %>
+        </div> 
+
+        <% if user_signed_in? %>
+          <div class='col-3 text-center'> 
+            <%= link_to user_path(current_user.id), class: "text-white" do %>
+              <%= current_user.nickname %>
+              <%= image_tag current_user.profile_image.variant(resize: '70x70'), class: "user-image" if current_user.profile_image.attached? %>
+              <%= image_tag "user_nil.png" , size: "70x70" unless current_user.profile_image.attached?  %>
+            <% end %>
+          </div> 
+          <div class='col-3 text-center'> 
+            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout, text-white" %>
+          </div> 
+        <% else %>
+          <div class='col-3 text-center'> 
+            <%= link_to 'ログイン', new_user_session_path, class: "login, text-white" %>
+          </div> 
+          <div class='col-3 text-center'> 
+            <%= link_to '新規登録', new_user_registration_path, class: "sign-up, text-white" %>
+          </div> 
+        <% end %>  
+    </div>
+  </div>
+</header>

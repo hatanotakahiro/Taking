@@ -10,7 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_22_101742) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_22_111419) do
+  create_table "equipment", force: :cascade do |t|
+    t.boolean "rental", default: false
+    t.string "equipment", null: false
+    t.string "code", null: false
+    t.date "deleted_at"
+    t.integer "rental_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["rental_id"], name: "index_equipment_on_rental_id"
+    t.index ["user_id"], name: "index_equipment_on_user_id"
+  end
+
+  create_table "rentals", force: :cascade do |t|
+    t.date "reserve_schedule_date"
+    t.date "return_schedule_date"
+    t.date "return_actual_date"
+    t.string "status"
+    t.boolean "apply"
+    t.boolean "rental_confirmation"
+    t.boolean "return_confirmation"
+    t.date "deleted_at"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_rentals_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -25,4 +53,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_22_101742) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "equipment", "rentals"
+  add_foreign_key "equipment", "users"
+  add_foreign_key "rentals", "users"
 end
