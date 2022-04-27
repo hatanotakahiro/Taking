@@ -1,0 +1,120 @@
+.index-review {
+  // background-color: #486d46;            /* 背景色 */
+  background-image: image-url('back_ground2.jpeg'); /* 画像 */
+  background-size: cover;               /* 全画面 */
+  background-attachment: fixed;         /* 固定 */
+  background-position: center center;   /* 縦横中央 */
+  padding: 15vh 0;
+  min-height: 70vh;
+}
+
+.index-review-content.container-fluid {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 90vw;
+}
+
+.index-review-content{
+  background-color: #FFF;
+  display: flex;
+  flex-direction: column;
+  padding: 5vh 0;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.review-index-box-img {
+  height: auto;
+  width: 25vw;
+  min-height: 500px;
+  margin-left: 3vw;
+  object-fit: contain;
+}
+
+.review-index-title {
+  margin: 30px 0;
+}
+
+.review-index-movie {
+  font-size: 20px;
+}
+
+.review-index-movie>table th{
+  width: 30%;
+}
+
+.review-index-movie>table td{
+  width: 40%;
+}
+
+.star-rating-index {
+  position: relative;
+  width: 10em;
+  height: 1em;
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+.star-rating-index-front {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  color: #ffcc33;
+}
+.star-rating-index-back {
+  color: #ccc;
+}
+
+
+.index-review-content-each.container-fluid {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 90vw;
+  padding: 20px 5vw;
+}
+
+.index-review-content-each{
+  background-color: #FFF;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+
+.review-index-user{
+  width: 20%;
+}
+
+.review-index-score{
+  width: 10%;
+}
+
+.review-index-text{
+  width: 35%;
+}
+
+.review-index-status{
+  width: 35%;
+}
+
+
+.review-index-content>table th{
+  padding : 6px;
+}
+
+.review-index-content>table td{
+  padding : 0;
+}
+
+.review-index-content>table td + td{
+  padding : 6px;
+}
+
+.star-rating-content-index{
+  position: relative;
+  width: 10em;
+  height: 1em;
+  font-size: 20px;
+  padding-bottom: 20px;
+}

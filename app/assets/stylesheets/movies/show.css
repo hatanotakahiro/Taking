@@ -1,0 +1,273 @@
+.movie-box.container-fluid {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 90vw;
+  padding: 50px 5vw;
+  margin-bottom: 30px;
+}
+
+.movie-box {
+  background-color: #FFF;
+  width: 70vw;
+  min-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.movie-box>.name {
+  text-align: center;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.movie-box-img {
+  height: auto;
+  width: 30vw;
+  min-height: 500px;
+  margin-left: 3vw;
+  object-fit: contain;
+}
+
+.movie-price-box {
+  margin: 25px 0px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.movie-price-box>.movie-price {
+  font-size: 4vh;
+  font-weight: bold;
+}
+
+.movie-price-box>.movie-postage {
+  font-size: 16px;
+}
+
+.movie-show-content {
+  font-size: 20px;
+}
+
+.movie-show-content>table th{
+  padding : 20px 10px;
+  width: 20%;
+}
+
+.movie-show-content>table td{
+  padding : 20px 10px;
+  width: 80%;
+}
+
+.movie-orange-btn {
+  width: 40vw;
+  text-align: center;
+  background-color: #F2904B;
+  font-size: 24px;
+  font-weight: bold;
+  color: #FFF;
+  margin: 20px 0px;
+  padding: 2vh 10vw;
+}
+
+.tag-title {
+  margin: 10px;
+  font-size: 20px;
+}
+
+.tag-list-show{
+  padding-top: 20px;
+}
+
+.show-tag-btn {
+  font-size: 13px;
+  position: relative;
+  display: inline-block;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  color: #FFF;
+  background: #17b3fc;/*色*/
+  border-radius: 4px;/*角の丸み*/
+  box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.05);
+  font-weight: bold;
+  border: solid 2px #00a2ff;/*線色*/
+}
+
+.show-tag-btn:active {
+  /*押したとき*/
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
+}
+
+.or-text {
+  font-size: 20px;
+}
+
+.movie-destroy {
+  background-color: lightgray;
+  text-align: center;
+  font-size: 24px;
+  color: black;
+  margin: 20px 0px;
+  padding: 2vh 10vw;
+}
+
+.movie-explain-box {
+  font-size: 18px;
+  margin: 40px 0px;
+  overflow-wrap: anywhere;
+}
+
+.detail-table {
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.detail-movie {
+  width: 20%;
+  background-color: #eee;
+  border: 1px solid #dedede;
+  font-size: 14px;
+  text-align: center;
+}
+
+.detail-value {
+  width: 80%;
+  padding: 20px;
+  border: 1px solid #dedede;
+  font-size: 14px;
+}
+
+.option {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.favorite-btn {
+  border-radius: 40px;
+  width: 15vw;
+  min-width: 200px;
+  color: rgb(249, 75, 0);
+  border: 2px solid #ffb340;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.favorite-star-icon {
+  margin-right: 5px;
+}
+
+.report-btn {
+  border-radius: 40px;
+  width: 15vw;
+  min-width: 200px;
+
+  padding: 1vh 0;
+  color: black;
+  border: 2px solid #2d2d2d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.report-flag-icon {
+  margin-right: 5px;
+}
+
+
+/* /商品の概要 */
+
+.comment-box {
+  width: 40vw;
+  background-color: #fff;
+  margin: 5vh 0;
+  text-align: center;
+}
+
+.comment-text {
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  border: solid 2px #dedede;
+  resize: none;
+}
+
+.comment-warn {
+  padding: 10px;
+  font-size: 14px;
+  margin: 10px 0px;
+  text-align: left;
+}
+
+.comment-btn {
+  line-height: 48px;
+  background-color: #3CCACE;
+  border: 1px solid #3CCACE;
+  color: #fff;
+  width: 50%;
+  min-width: 150px;
+  font-size: 18px;
+  border-radius: 100px;
+  margin-bottom: 2vh;
+}
+
+.comment-flag {
+  display: flex;
+  justify-content: center;
+}
+
+.comment-flag-icon {
+  margin: 10px 5px 0 0;
+}
+
+.links {
+  display: flex;
+  justify-content: space-between;
+  width: 50vw;
+
+}
+
+.change-movie-btn {
+  font-size: 30px;
+  text-decoration: none;
+  color: #3CCACE;
+}
+
+.another-movie {
+  display: block;
+  margin: 30px 0px 8px;
+  color: #3CCACE;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 23px;
+}
+
+.ave-review-title{
+  font-size: 30px;
+  margin: 20px 0 10px 0;
+}
+
+.ave-review {
+  width: 70vw;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.movie-yellow-btn {
+  width: 40vw;
+  text-align: center;
+  background-color: #f5b803;
+  font-size: 24px;
+  font-weight: bold;
+  color: #FFF;
+  margin: 20px 0px;
+  padding: 2vh 10vw;
+}
+
+.review-destroy{
+  margin: 0 0 0 auto;
+}

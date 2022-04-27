@@ -55,7 +55,13 @@ gem 'font-awesome-sass'
 gem 'kaminari'
 
 # Reduces boot times through caching; required in config/boot.rb
-gem "bootsnap", require: false
+gem 'uglifier'
+gem 'jquery-rails'
+gem 'bootstrap'
+
+gem 'webpacker'
+
+gem 'sprockets', '~> 3.7.2'
 
 # Use Sass to process CSS
 # gem "sassc-rails"

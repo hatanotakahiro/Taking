@@ -1,0 +1,10 @@
+.second-header {
+  width: 100%;
+  min-width: 800px;
+  height: 130px;
+  background-image: linear-gradient(to right, #faedc4 0%, #f7f5f1 100%);
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
