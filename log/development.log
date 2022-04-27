@@ -2462,3 +2462,723 @@ Processing by RentalsController#index as HTML
 Completed 200 OK in 122ms (Views: 118.4ms | ActiveRecord: 0.0ms | Allocations: 16537)
 
 
+Started GET "/" for ::1 at 2022-04-27 20:24:15 +0900
+Processing by RentalsController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/rentals_controller.rb:4:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 265.7ms | Allocations: 58880)
+  Rendered shared/_footer.html.erb (Duration: 0.4ms | Allocations: 129)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 270.3ms | Allocations: 59432)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 363.4ms | Allocations: 72636)
+Completed 200 OK in 383ms (Views: 374.0ms | ActiveRecord: 0.6ms | Allocations: 74158)
+
+
+Started GET "/" for ::1 at 2022-04-27 20:26:05 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 5.4ms | Allocations: 1926)
+  Rendered shared/_footer.html.erb (Duration: 0.3ms | Allocations: 129)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 9.8ms | Allocations: 2478)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 109.7ms | Allocations: 15635)
+Completed 200 OK in 131ms (Views: 125.2ms | ActiveRecord: 0.0ms | Allocations: 16554)
+
+
+Started GET "/" for ::1 at 2022-04-27 20:39:55 +0900
+Processing by RentalsController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/rentals_controller.rb:4:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 364.3ms | Allocations: 62402)
+  Rendered shared/_footer.html.erb (Duration: 0.4ms | Allocations: 129)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 368.8ms | Allocations: 62957)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 445.1ms | Allocations: 76168)
+Completed 200 OK in 461ms (Views: 454.7ms | ActiveRecord: 0.7ms | Allocations: 77688)
+
+
+Started GET "/" for ::1 at 2022-04-27 20:40:39 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 14.1ms | Allocations: 3027)
+  Rendered shared/_footer.html.erb (Duration: 1.0ms | Allocations: 129)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 20.1ms | Allocations: 3580)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 108.9ms | Allocations: 16750)
+Completed 200 OK in 126ms (Views: 119.0ms | ActiveRecord: 0.0ms | Allocations: 17669)
+
+
+Started GET "/" for ::1 at 2022-04-27 20:41:18 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 12.9ms | Allocations: 3024)
+  Rendered shared/_footer.html.erb (Duration: 0.8ms | Allocations: 129)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 18.6ms | Allocations: 3576)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 118.4ms | Allocations: 16742)
+Completed 200 OK in 129ms (Views: 124.6ms | ActiveRecord: 0.0ms | Allocations: 17661)
+
+
+Started GET "/" for ::1 at 2022-04-27 20:41:20 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 4.5ms | Allocations: 2065)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 17)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 6.2ms | Allocations: 2238)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 96.8ms | Allocations: 15072)
+Completed 200 OK in 101ms (Views: 98.5ms | ActiveRecord: 0.0ms | Allocations: 15432)
+
+
+Started GET "/" for ::1 at 2022-04-27 20:42:29 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 10.9ms | Allocations: 3013)
+  Rendered shared/_footer.html.erb (Duration: 0.8ms | Allocations: 129)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 18.4ms | Allocations: 3565)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 110.3ms | Allocations: 16730)
+Completed 200 OK in 130ms (Views: 123.0ms | ActiveRecord: 0.0ms | Allocations: 17608)
+
+
+Started GET "/" for ::1 at 2022-04-27 20:42:45 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 10.8ms | Allocations: 3015)
+  Rendered shared/_footer.html.erb (Duration: 0.7ms | Allocations: 129)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 18.8ms | Allocations: 3567)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 134.0ms | Allocations: 16732)
+Completed 200 OK in 151ms (Views: 144.6ms | ActiveRecord: 0.0ms | Allocations: 17651)
+
+
+Started GET "/" for ::1 at 2022-04-27 20:43:06 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 13.3ms | Allocations: 3019)
+  Rendered shared/_footer.html.erb (Duration: 0.7ms | Allocations: 129)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 18.6ms | Allocations: 3571)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 109.6ms | Allocations: 16737)
+Completed 200 OK in 132ms (Views: 126.7ms | ActiveRecord: 0.0ms | Allocations: 17656)
+
+
+Started GET "/" for ::1 at 2022-04-27 20:43:25 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 8.6ms | Allocations: 3021)
+  Rendered shared/_footer.html.erb (Duration: 0.5ms | Allocations: 132)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 15.5ms | Allocations: 3576)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 126.4ms | Allocations: 16747)
+Completed 200 OK in 142ms (Views: 136.2ms | ActiveRecord: 0.0ms | Allocations: 17666)
+
+
+Started GET "/" for ::1 at 2022-04-27 20:44:25 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 19.8ms | Allocations: 2453)
+  Rendered shared/_footer.html.erb (Duration: 0.1ms | Allocations: 17)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 20.8ms | Allocations: 2626)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 127.9ms | Allocations: 15499)
+Completed 200 OK in 134ms (Views: 130.3ms | ActiveRecord: 0.0ms | Allocations: 15859)
+
+
+Started GET "/" for ::1 at 2022-04-27 20:45:41 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 11.5ms | Allocations: 3061)
+  Rendered shared/_footer.html.erb (Duration: 0.6ms | Allocations: 129)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 17.4ms | Allocations: 3614)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 120.8ms | Allocations: 16779)
+Completed 200 OK in 132ms (Views: 128.8ms | ActiveRecord: 0.0ms | Allocations: 17657)
+
+
+Started GET "/" for ::1 at 2022-04-27 20:46:09 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 9.6ms | Allocations: 3018)
+  Rendered shared/_footer.html.erb (Duration: 0.8ms | Allocations: 129)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 14.2ms | Allocations: 3570)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 113.6ms | Allocations: 16739)
+Completed 200 OK in 127ms (Views: 122.1ms | ActiveRecord: 0.0ms | Allocations: 17659)
+
+
+Started GET "/" for ::1 at 2022-04-27 20:46:26 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 9.2ms | Allocations: 3020)
+  Rendered shared/_footer.html.erb (Duration: 1.0ms | Allocations: 129)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 14.1ms | Allocations: 3572)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 115.3ms | Allocations: 16737)
+Completed 200 OK in 128ms (Views: 123.9ms | ActiveRecord: 0.0ms | Allocations: 17656)
+
+
+Started GET "/" for ::1 at 2022-04-27 20:47:22 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 10.1ms | Allocations: 3019)
+  Rendered shared/_footer.html.erb (Duration: 0.6ms | Allocations: 129)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 14.2ms | Allocations: 3572)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 2366.1ms | Allocations: 59815)
+Completed 200 OK in 2377ms (Views: 2372.4ms | ActiveRecord: 0.0ms | Allocations: 60734)
+
+
+Started GET "/" for ::1 at 2022-04-27 20:50:52 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 9.4ms | Allocations: 2078)
+  Rendered shared/_footer.html.erb (Duration: 0.1ms | Allocations: 17)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 10.8ms | Allocations: 2251)
+  Rendered layout layouts/application.html.erb (Duration: 2454.0ms | Allocations: 48581)
+Completed 500 Internal Server Error in 2458ms (ActiveRecord: 0.0ms | Allocations: 48923)
+
+
+  
+ActionView::Template::Error (CssSyntaxError: /C:/Users/ams/Desktop/Taking/app/assets/stylesheets/shared/header.css:2:3: Unknown word
+
+  1 | header {
+> 2 |   rgb(10, 88, 202);
+    |   ^
+  3 | }
+  4 | .Taking2-icon {
+):
+     5:     <%= csrf_meta_tags %>
+     6:     <%= csp_meta_tag %>
+     7:     <script type="text/javascript" src="https://js.pay.jp/v1/"></script>
+     8:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     9:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    10:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    11:   <body>
+  
+app/views/layouts/application.html.erb:8
+Started GET "/" for ::1 at 2022-04-27 20:50:59 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 7.8ms | Allocations: 2081)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 17)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 8.9ms | Allocations: 2254)
+  Rendered layout layouts/application.html.erb (Duration: 498.0ms | Allocations: 20771)
+Completed 500 Internal Server Error in 503ms (ActiveRecord: 0.0ms | Allocations: 21064)
+
+
+  
+ActionView::Template::Error (CssSyntaxError: /C:/Users/ams/Desktop/Taking/app/assets/stylesheets/shared/header.css:2:3: Unknown word
+
+  1 | header {
+> 2 |   rgb(10, 88, 202);
+    |   ^
+  3 | }
+  4 | .Taking2-icon {
+):
+     5:     <%= csrf_meta_tags %>
+     6:     <%= csp_meta_tag %>
+     7:     <script type="text/javascript" src="https://js.pay.jp/v1/"></script>
+     8:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     9:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    10:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    11:   <body>
+  
+app/views/layouts/application.html.erb:8
+Started GET "/" for ::1 at 2022-04-27 20:51:02 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 7.7ms | Allocations: 2081)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 17)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 8.9ms | Allocations: 2254)
+  Rendered layout layouts/application.html.erb (Duration: 467.2ms | Allocations: 20538)
+Completed 500 Internal Server Error in 472ms (ActiveRecord: 0.0ms | Allocations: 20831)
+
+
+  
+ActionView::Template::Error (CssSyntaxError: /C:/Users/ams/Desktop/Taking/app/assets/stylesheets/shared/header.css:2:3: Unknown word
+
+  1 | header {
+> 2 |   rgb(10, 88, 202);
+    |   ^
+  3 | }
+  4 | .Taking2-icon {
+):
+     5:     <%= csrf_meta_tags %>
+     6:     <%= csp_meta_tag %>
+     7:     <script type="text/javascript" src="https://js.pay.jp/v1/"></script>
+     8:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     9:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    10:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    11:   <body>
+  
+app/views/layouts/application.html.erb:8
+Started GET "/" for ::1 at 2022-04-27 20:51:30 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 7.8ms | Allocations: 2081)
+  Rendered shared/_footer.html.erb (Duration: 0.1ms | Allocations: 17)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 9.8ms | Allocations: 2254)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 2404.7ms | Allocations: 60931)
+Completed 200 OK in 2408ms (Views: 2406.4ms | ActiveRecord: 0.0ms | Allocations: 61250)
+
+
+Started GET "/" for ::1 at 2022-04-27 20:51:53 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 5.0ms | Allocations: 2083)
+  Rendered shared/_footer.html.erb (Duration: 0.1ms | Allocations: 17)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 6.3ms | Allocations: 2256)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 122.3ms | Allocations: 15091)
+Completed 200 OK in 126ms (Views: 123.6ms | ActiveRecord: 0.0ms | Allocations: 15410)
+
+
+Started GET "/" for ::1 at 2022-04-27 20:51:54 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 5.7ms | Allocations: 2093)
+  Rendered shared/_footer.html.erb (Duration: 0.1ms | Allocations: 17)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 7.2ms | Allocations: 2266)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 104.8ms | Allocations: 15102)
+Completed 200 OK in 110ms (Views: 107.2ms | ActiveRecord: 0.0ms | Allocations: 15421)
+
+
+Started GET "/" for ::1 at 2022-04-27 20:52:52 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 7.1ms | Allocations: 2080)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 17)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 8.1ms | Allocations: 2253)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 2322.7ms | Allocations: 60922)
+Completed 200 OK in 2327ms (Views: 2323.7ms | ActiveRecord: 0.0ms | Allocations: 61241)
+
+
+Started GET "/" for ::1 at 2022-04-27 20:57:48 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 63.5ms | Allocations: 3763)
+  Rendered shared/_footer.html.erb (Duration: 0.5ms | Allocations: 129)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 69.3ms | Allocations: 4320)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 2531.8ms | Allocations: 76243)
+Completed 200 OK in 2546ms (Views: 2540.8ms | ActiveRecord: 0.0ms | Allocations: 77116)
+
+
+Started GET "/" for ::1 at 2022-04-27 20:58:32 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 13.6ms | Allocations: 3018)
+  Rendered shared/_footer.html.erb (Duration: 0.6ms | Allocations: 129)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 18.6ms | Allocations: 3575)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 126.7ms | Allocations: 16789)
+Completed 200 OK in 139ms (Views: 134.1ms | ActiveRecord: 0.0ms | Allocations: 17708)
+
+
+Started GET "/users/sign_up" for ::1 at 2022-04-27 20:58:46 +0900
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered shared/_second-header.html.erb (Duration: 3.3ms | Allocations: 982)
+  Rendered shared/_error_messages.html.erb (Duration: 0.4ms | Allocations: 200)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 18)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 10.5ms | Allocations: 2323)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 112.8ms | Allocations: 15283)
+Completed 200 OK in 130ms (Views: 127.1ms | ActiveRecord: 0.0ms | Allocations: 16371)
+
+
+Started GET "/users/sign_up" for ::1 at 2022-04-27 20:59:32 +0900
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered shared/_second-header.html.erb (Duration: 3.9ms | Allocations: 982)
+  Rendered shared/_error_messages.html.erb (Duration: 0.8ms | Allocations: 200)
+  Rendered shared/_footer.html.erb (Duration: 0.9ms | Allocations: 129)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 11.3ms | Allocations: 2487)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 121.5ms | Allocations: 15676)
+Completed 200 OK in 138ms (Views: 130.5ms | ActiveRecord: 0.0ms | Allocations: 17016)
+
+
+Started GET "/" for ::1 at 2022-04-27 20:59:46 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 10.7ms | Allocations: 3016)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 18)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 15.5ms | Allocations: 3418)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 117.3ms | Allocations: 16358)
+Completed 200 OK in 128ms (Views: 123.5ms | ActiveRecord: 0.0ms | Allocations: 17085)
+
+
+Started GET "/" for ::1 at 2022-04-27 21:01:08 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 6.5ms | Allocations: 2073)
+  Rendered shared/_footer.html.erb (Duration: 0.1ms | Allocations: 17)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 7.4ms | Allocations: 2246)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 96.0ms | Allocations: 15078)
+Completed 200 OK in 100ms (Views: 97.4ms | ActiveRecord: 0.0ms | Allocations: 15438)
+
+
+Started GET "/" for ::1 at 2022-04-27 21:01:09 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 9.4ms | Allocations: 2079)
+  Rendered shared/_footer.html.erb (Duration: 0.1ms | Allocations: 17)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 11.1ms | Allocations: 2252)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 111.5ms | Allocations: 15084)
+Completed 200 OK in 116ms (Views: 112.9ms | ActiveRecord: 0.0ms | Allocations: 15403)
+
+
+  [1m[35m (3.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Started GET "/users/sign_up" for 127.0.0.1 at 2022-04-27 21:03:47 +0900
+  [1m[35m (3.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered shared/_second-header.html.erb (Duration: 298.0ms | Allocations: 322554)
+  Rendered shared/_error_messages.html.erb (Duration: 0.4ms | Allocations: 216)
+  Rendered shared/_footer.html.erb (Duration: 0.3ms | Allocations: 163)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 310.3ms | Allocations: 325137)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 382.5ms | Allocations: 338529)
+Completed 200 OK in 430ms (Views: 408.0ms | ActiveRecord: 0.6ms | Allocations: 349706)
+
+
+Started GET "/" for ::1 at 2022-04-27 21:04:30 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 10.4ms | Allocations: 3099)
+  Rendered shared/_footer.html.erb (Duration: 0.1ms | Allocations: 18)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 14.1ms | Allocations: 3504)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 91.5ms | Allocations: 16455)
+Completed 200 OK in 122ms (Views: 98.4ms | ActiveRecord: 0.0ms | Allocations: 18710)
+
+
+  [1m[35m (3.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (3.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (76.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (10.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DeviseCreateUsers (20220422101742)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "admin" boolean DEFAULT 0, "deleted_at" date, "reset_password_token" varchar, "reset_password_sent_at" datetime(6), "remember_created_at" datetime(6), "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220422101742"]]
+  [1m[36mTRANSACTION (8.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateEquipment (20220422104847)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "equipment" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "rental" boolean DEFAULT 0, "equipment" varchar NOT NULL, "code" varchar NOT NULL, "deleted_at" date, "rental_id" integer, "user_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_8d6fb21500"
+FOREIGN KEY ("rental_id")
+  REFERENCES "rentals" ("id")
+, CONSTRAINT "fk_rails_c09ca68143"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_equipment_on_rental_id" ON "equipment" ("rental_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_equipment_on_user_id" ON "equipment" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220422104847"]]
+  [1m[36mTRANSACTION (7.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateRentals (20220422111419)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "rentals" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "reserve_schedule_date" date, "return_schedule_date" date, "return_actual_date" date, "status" varchar, "apply" boolean, "rental_confirmation" boolean, "return_confirmation" boolean, "deleted_at" date, "user_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_2c7010c082"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_rentals_on_user_id" ON "rentals" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220422111419"]]
+  [1m[36mTRANSACTION (7.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-04-27 12:09:52.922730"], ["updated_at", "2022-04-27 12:09:52.922730"]]
+  [1m[36mTRANSACTION (7.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (3.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (3.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (3.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (3.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Started GET "/users/sign_up" for ::1 at 2022-04-27 21:26:11 +0900
+  [1m[35m (3.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered shared/_second-header.html.erb (Duration: 311.5ms | Allocations: 322554)
+  Rendered shared/_error_messages.html.erb (Duration: 0.5ms | Allocations: 216)
+  Rendered shared/_footer.html.erb (Duration: 0.3ms | Allocations: 163)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 325.5ms | Allocations: 325137)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 398.8ms | Allocations: 338530)
+Completed 200 OK in 445ms (Views: 422.5ms | ActiveRecord: 0.6ms | Allocations: 349708)
+
+
+Started POST "/users" for ::1 at 2022-04-27 21:26:37 +0900
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"テスト太郎", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"会員登録"}
+Completed 500 Internal Server Error in 380ms (ActiveRecord: 0.0ms | Allocations: 8788)
+
+
+  
+NoMethodError (undefined method `email' for #<User id: nil, name: "テスト太郎", admin: false, deleted_at: nil, created_at: nil, updated_at: nil>):
+  
+activemodel (7.0.2.3) lib/active_model/attribute_methods.rb:458:in `method_missing'
+activemodel (7.0.2.3) lib/active_model/validator.rb:150:in `block in validate'
+activemodel (7.0.2.3) lib/active_model/validator.rb:149:in `each'
+activemodel (7.0.2.3) lib/active_model/validator.rb:149:in `validate'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:423:in `block in make_lambda'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:180:in `block (2 levels) in halting_and_conditional'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:687:in `block (2 levels) in default_terminator'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:686:in `catch'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:686:in `block in default_terminator'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:181:in `block in halting_and_conditional'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:595:in `block in invoke_before'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:595:in `each'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:595:in `invoke_before'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:106:in `run_callbacks'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:929:in `_run_validate_callbacks'
+activemodel (7.0.2.3) lib/active_model/validations.rb:406:in `run_validations!'
+activemodel (7.0.2.3) lib/active_model/validations/callbacks.rb:117:in `block in run_validations!'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:107:in `run_callbacks'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:929:in `_run_validation_callbacks'
+activemodel (7.0.2.3) lib/active_model/validations/callbacks.rb:117:in `run_validations!'
+activemodel (7.0.2.3) lib/active_model/validations.rb:337:in `valid?'
+activerecord (7.0.2.3) lib/active_record/validations.rb:68:in `valid?'
+activerecord (7.0.2.3) lib/active_record/validations.rb:84:in `perform_validations'
+activerecord (7.0.2.3) lib/active_record/validations.rb:47:in `save'
+activerecord (7.0.2.3) lib/active_record/transactions.rb:298:in `block in save'
+activerecord (7.0.2.3) lib/active_record/transactions.rb:354:in `block in with_transaction_returning_status'
+activerecord (7.0.2.3) lib/active_record/connection_adapters/abstract/transaction.rb:319:in `block in within_new_transaction'
+activesupport (7.0.2.3) lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `handle_interrupt'
+activesupport (7.0.2.3) lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `block in synchronize'
+activesupport (7.0.2.3) lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `handle_interrupt'
+activesupport (7.0.2.3) lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `synchronize'
+activerecord (7.0.2.3) lib/active_record/connection_adapters/abstract/transaction.rb:317:in `within_new_transaction'
+activerecord (7.0.2.3) lib/active_record/connection_adapters/abstract/database_statements.rb:316:in `transaction'
+activerecord (7.0.2.3) lib/active_record/transactions.rb:350:in `with_transaction_returning_status'
+activerecord (7.0.2.3) lib/active_record/transactions.rb:298:in `save'
+activerecord (7.0.2.3) lib/active_record/suppressor.rb:50:in `save'
+devise (4.8.1) app/controllers/devise/registrations_controller.rb:19:in `create'
+actionpack (7.0.2.3) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (7.0.2.3) lib/abstract_controller/base.rb:214:in `process_action'
+actionpack (7.0.2.3) lib/action_controller/metal/rendering.rb:53:in `process_action'
+actionpack (7.0.2.3) lib/abstract_controller/callbacks.rb:234:in `block in process_action'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+actiontext (7.0.2.3) lib/action_text/rendering.rb:20:in `with_renderer'
+actiontext (7.0.2.3) lib/action_text/engine.rb:69:in `block (4 levels) in <class:Engine>'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:127:in `instance_exec'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:127:in `block in run_callbacks'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:138:in `run_callbacks'
+actionpack (7.0.2.3) lib/abstract_controller/callbacks.rb:233:in `process_action'
+actionpack (7.0.2.3) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (7.0.2.3) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+activesupport (7.0.2.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.2.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.2.3) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.0.2.3) lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+actionpack (7.0.2.3) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.0.2.3) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (7.0.2.3) lib/abstract_controller/base.rb:151:in `process'
+actionview (7.0.2.3) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.2.3) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.2.3) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.2.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.2.3) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.2.3) lib/action_dispatch/routing/mapper.rb:18:in `block in <class:Constraints>'
+actionpack (7.0.2.3) lib/action_dispatch/routing/mapper.rb:48:in `serve'
+actionpack (7.0.2.3) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.2.3) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.2.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.2.3) lib/action_dispatch/routing/route_set.rb:850:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/http/permissions_policy.rb:22:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/cookies.rb:693:in `call'
+activerecord (7.0.2.3) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.2.3) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.2.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (7.0.2.3) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.2.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.2.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.2.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.2.3) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/server_timing.rb:20:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.2.3) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+webpacker (5.4.3) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.7.2) lib/rack/proxy.rb:67:in `call'
+railties (7.0.2.3) lib/rails/engine.rb:530:in `call'
+puma (5.6.4) lib/puma/configuration.rb:252:in `call'
+puma (5.6.4) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.4) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.4) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.4) lib/puma/server.rb:441:in `process_client'
+puma (5.6.4) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+  [1m[35m (3.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (3.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (1.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "encrypted_password", "admin", "deleted_at", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "管理者"], ["encrypted_password", "[FILTERED]"], ["admin", 1], ["deleted_at", nil], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["created_at", "2022-04-27 12:31:05.176626"], ["updated_at", "2022-04-27 12:31:05.176626"]]
+  [1m[36mTRANSACTION (9.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (1.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "encrypted_password", "admin", "deleted_at", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "テストユーザー2"], ["encrypted_password", "[FILTERED]"], ["admin", 0], ["deleted_at", nil], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["created_at", "2022-04-27 12:31:05.386034"], ["updated_at", "2022-04-27 12:31:05.386034"]]
+  [1m[36mTRANSACTION (10.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (1.0ms)[0m  [1m[32mINSERT INTO "users" ("name", "encrypted_password", "admin", "deleted_at", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "テストユーザー2"], ["encrypted_password", "[FILTERED]"], ["admin", 0], ["deleted_at", nil], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["created_at", "2022-04-27 12:31:05.592623"], ["updated_at", "2022-04-27 12:31:05.592623"]]
+  [1m[36mTRANSACTION (8.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (1.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "encrypted_password", "admin", "deleted_at", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "テストユーザー3"], ["encrypted_password", "[FILTERED]"], ["admin", 0], ["deleted_at", nil], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["created_at", "2022-04-27 12:31:05.791039"], ["updated_at", "2022-04-27 12:31:05.791039"]]
+  [1m[36mTRANSACTION (7.9ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/" for ::1 at 2022-04-27 21:32:03 +0900
+  [1m[35m (8.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 500.5ms | Allocations: 324950)
+  Rendered shared/_footer.html.erb (Duration: 0.7ms | Allocations: 137)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 511.5ms | Allocations: 325845)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 604.1ms | Allocations: 339194)
+Completed 200 OK in 680ms (Views: 619.1ms | ActiveRecord: 0.0ms | Allocations: 345816)
+
+
+Started GET "/users/sign_in" for ::1 at 2022-04-27 21:32:07 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered shared/_second-header.html.erb (Duration: 4.3ms | Allocations: 986)
+  Rendered shared/_footer.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 20.1ms | Allocations: 2655)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 117.1ms | Allocations: 15635)
+Completed 200 OK in 158ms (Views: 129.8ms | ActiveRecord: 1.5ms | Allocations: 23292)
+
+
+Started GET "/users/sign_in" for ::1 at 2022-04-27 21:44:13 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered shared/_second-header.html.erb (Duration: 2.3ms | Allocations: 982)
+  Rendered shared/_footer.html.erb (Duration: 0.4ms | Allocations: 129)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 6.1ms | Allocations: 2150)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 84.3ms | Allocations: 15340)
+Completed 200 OK in 98ms (Views: 95.8ms | Allocations: 16699)
+
+
+Started POST "/users/sign_in" for ::1 at 2022-04-27 21:44:34 +0900
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"管理者", "password"=>"[FILTERED]"}, "commit"=>"ログイン"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["name", "管理者"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 415ms (ActiveRecord: 0.6ms | Allocations: 153759)
+
+
+Started GET "/" for ::1 at 2022-04-27 21:44:34 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_header.html.erb:18
+  Rendered shared/_header.html.erb (Duration: 15.6ms | Allocations: 9656)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 18.1ms | Allocations: 9981)
+  Rendered layout layouts/application.html.erb (Duration: 19.2ms | Allocations: 10076)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 0.2ms | Allocations: 10812)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `new_movie_path' for #<ActionView::Base:0x0000000000e600>
+Did you mean?  new_session_path):
+    19:             <% unless current_user.admin? %>
+    20:             <%= link_to 'フォロワーリスト', {controller: :users, action: :follower}, class: "brand-list, text-white" %>
+    21:             <% else %>
+    22:               <%= link_to '作品の追加', new_movie_path, class: "brand-list, text-white" %>
+    23:             <% end %>
+    24:           <% end %>
+    25:         </div> 
+  
+app/views/shared/_header.html.erb:22
+app/views/rentals/index.html.erb:1
