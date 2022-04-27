@@ -4,7 +4,9 @@
     <div class='search-bar-contents, col'>
       <div class='row align-items-center justify-content-center'>
         <div class='col'> 
-          <%= link_to image_tag("ankusu.png", size: '300x100', class:"sympasee-icon"), "/" %>
+          <%= link_to image_tag("Taking.png", size: '120x100', class:"Taking2-icon"), "/" %>
+          <%= link_to image_tag("by.png", size: '30x30', class:"by-icon"), "/" %>
+          <%= link_to image_tag("ankusu.png", size: '120x30', class:"ankusu-icon"), "/" %>
         </div>
       </div>
     </div>
@@ -13,7 +15,7 @@
       <div class='lists-left, row align-items-center justify-content-center'>
 
         <div class='col-3 text-center'> 
-          <% if user_signed_in? %>        
+          <% if user_signed_in? %>
             <% unless current_user.admin? %>
             <%= link_to 'フォロワーリスト', {controller: :users, action: :follower}, class: "brand-list, text-white" %>
             <% else %>
@@ -39,7 +41,7 @@
             <% end %>
           </div> 
           <div class='col-3 text-center'> 
-            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout, text-white" %>
+            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %>
           </div> 
         <% else %>
           <div class='col-3 text-center'> 
