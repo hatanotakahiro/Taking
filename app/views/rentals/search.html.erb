@@ -1,0 +1,41 @@
+<%= render "shared/header" %>
+<div class='movie-show' style="background: url(../images/red-curtain2.jpeg); background-size: cover; background-attachment: fixed; background-position: center center; padding: 30px 0; min-height: 70vh;">
+
+  <%# 作品一覧 %>
+  <div class='movie-search-contents container-fluid'>
+    <h5 class="search-subtitle">検索結果</h5>
+    <div class="row" style="width:100%">
+      <% if @movies.blank? %>
+        <div class="no-hit-search">
+          <h5>一致するタイトル・タグはありませんでした</h5>
+        </div>
+      <% else %>
+        <% @movies.each do |m| %>
+          <div class='movie-lists, col-3'>
+
+            <%= link_to movie_path(m.id) do %>
+              <div class='movie-img-content, text-center'>
+                <%= image_tag m.movie_image, class: "movie-img" %>
+              </div>
+
+              <div class='movie-info'>
+                <h4><%= m.movie_title %></h4>
+              </div>
+            <% end %>
+
+            <div class='tag-list label label-primary'>
+              <% if m.tags.present? %>
+                <%= raw(m.tag_list.map { |t| link_to t, tag_path(t), class: "tag-btn" }.join('&ensp;&ensp;')) %>
+              <% else %>
+                <p>登録しているタグはありません</p>
+              <% end %>
+            </div>
+
+
+          </div>
+        <% end %>
+      <% end %>
+    </div> 
+  </div>
+</div>
+<%= render "shared/footer" %>

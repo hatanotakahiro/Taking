@@ -1,5 +1,40 @@
 <%= render "shared/header" %>
-<div class='main'>
+<div class='rental-main'>
+  <%# ピックアップタイトルの部分 %>
+  <div class="container-fluid pickup_title">
+    <h1 class="title">本日の日付：<%= Date.today %></h1>
+  </div>
 
+  <%# ピックアップタイトルの部分 %>
+
+  <%# 作品一覧 %>
+  <div class='rental-contents container-fluid'>
+    <% if user_signed_in? %>
+      <div class="index-search"> 
+        <%= form_for(@new_rental, url: {controller: 'rentals', action: 'search' }) do |f| %>
+          <%= f.text_field :keyword, value: @keyword %>
+          <%= f.submit "貸出物 or 日付検索", class: "search_btn" %>
+        <% end %>
+      </div>
+    <% end %>
+    <h5 class="subtitle">貸出リスト</h5>
+    <div class="row" style="width:100%">
+      <% @rentals.each do |r| %>
+        <div class='rental-lists, col-3'>
+
+          <%= link_to rental_path(r.id) do %>
+            <div class='rental-img-content, text-center'>
+              <%= image_tag r.rental_image, class: "rental-img" %>
+            </div>
+
+            <div class='rental-info'>
+              <h4><%= r.rental_title %></h4>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div> 
+    <%= paginate @rentals %>
+  </div>
 </div>
 <%= render "shared/footer" %>

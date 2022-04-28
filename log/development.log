@@ -3182,3 +3182,1956 @@ Did you mean?  new_session_path):
   
 app/views/shared/_header.html.erb:22
 app/views/rentals/index.html.erb:1
+Started GET "/" for ::1 at 2022-04-28 18:22:36 +0900
+Processing by RentalsController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/rentals_controller.rb:4:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_header.html.erb:18
+  Rendered shared/_header.html.erb (Duration: 20.1ms | Allocations: 9186)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 21.9ms | Allocations: 9492)
+  Rendered layout layouts/application.html.erb (Duration: 22.6ms | Allocations: 9587)
+Completed 500 Internal Server Error in 34ms (ActiveRecord: 0.7ms | Allocations: 11080)
+
+
+  
+ActionView::Template::Error (undefined method `user_path' for #<ActionView::Base:0x0000000000e998>):
+    34: 
+    35:         <% if user_signed_in? %>
+    36:           <div class='col-3 text-center'> 
+    37:             <%= link_to user_path(current_user.id), class: "text-white" do %>
+    38:               <%= current_user.nickname %>
+    39:               <%= image_tag current_user.profile_image.variant(resize: '70x70'), class: "user-image" if current_user.profile_image.attached? %>
+    40:               <%= image_tag "user_nil.png" , size: "70x70" unless current_user.profile_image.attached?  %>
+  
+app/views/shared/_header.html.erb:37
+app/views/rentals/index.html.erb:1
+Started GET "/" for ::1 at 2022-04-28 18:23:18 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 1.0ms | Allocations: 1878)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 2185)
+  Rendered layout layouts/application.html.erb (Duration: 2.8ms | Allocations: 2280)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms | Allocations: 3151)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <%# CSS・・・assets/stylesheets/shared/header.css %>
+<header class='top-page-header, container-fluid'>
+  <div class='row align-items-center justify-content-center'>
+    <div class='search-bar-contents, col'>
+      <div class='row align-items-center justify-content-center'>
+        <div class='col'> 
+          <%= link_to image_tag("Taking.png", size: '120x100', class:"Taking2-icon"), "/" %>
+          <%= link_to image_tag("by.png", size: '30x30', class:"by-icon"), "/" %>
+          <%= link_to image_tag("ankusu.png", size: '120x30', class:"ankusu-icon"), "/" %>
+        </div>
+      </div>
+    </div>
+  <%# コンポーネントを追加 %>
+    <div class='nav, col'>
+      <div class='lists-left, row align-items-center justify-content-center'>
+
+        <div class='col-3 text-center'> 
+          <% if user_signed_in? %>
+            <% unless current_user.admin? %>
+            <%= link_to 'フォロワーリスト', {controller: :users, action: :follower}, class: "brand-list, text-white" %>
+            <% else %>
+              <%#= link_to '作品の追加', new_movie_path, class: "brand-list, text-white" %>
+            <% end %>
+          <% end %>
+        </div> 
+
+        <div class='col-3 text-center'> 
+          <% if user_signed_in? %>
+            <% unless current_user.admin? %>
+              <%= link_to 'フォローリスト', {controller: :users, action: :follow}, class: "brand-list, text-white" %>
+            <% end %>
+          <% end %>
+        </div> 
+
+        <% if user_signed_in? %>
+          <div class='col-3 text-center'> 
+            <%#= link_to user_path(current_user.id), class: "text-white" do %>
+              <%= current_user.nickname %>
+              <%= image_tag current_user.profile_image.variant(resize: '70x70'), class: "user-image" if current_user.profile_image.attached? %>
+              <%= image_tag "user_nil.png" , size: "70x70" unless current_user.profile_image.attached?  %>
+            <% end %>
+          </div> 
+          <div class='col-3 text-center'> 
+            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %>
+          </div> 
+        <% else %>
+          <div class='col-3 text-center'> 
+            <%= link_to 'ログイン', new_user_session_path, class: "login, text-white" %>
+          </div> 
+          <div class='col-3 text-center'> 
+            <%= link_to '新規登録', new_user_registration_path, class: "sign-up, text-white" %>
+          </div> 
+        <% end %>  
+    </div>
+  </div>
+</header>
+):
+1:    <%# CSS・・・assets/stylesheets/shared/header.css %>
+2:    <header class='top-page-header, container-fluid'>
+3:      <div class='row align-items-center justify-content-center'>
+4:        <div class='search-bar-contents, col'>
+5:          <div class='row align-items-center justify-content-center'>
+6:            <div class='col'> 
+7:              <%= link_to image_tag("Taking.png", size: '120x100', class:"Taking2-icon"), "/" %>
+8:              <%= link_to image_tag("by.png", size: '30x30', class:"by-icon"), "/" %>
+9:              <%= link_to image_tag("ankusu.png", size: '120x30', class:"ankusu-icon"), "/" %>
+10:            </div>
+11:          </div>
+12:        </div>
+13:      <%# コンポーネントを追加 %>
+14:        <div class='nav, col'>
+15:          <div class='lists-left, row align-items-center justify-content-center'>
+16:    
+17:            <div class='col-3 text-center'> 
+18:              <% if user_signed_in? %>
+19:                <% unless current_user.admin? %>
+20:                <%= link_to 'フォロワーリスト', {controller: :users, action: :follower}, class: "brand-list, text-white" %>
+21:                <% else %>
+22:                  <%#= link_to '作品の追加', new_movie_path, class: "brand-list, text-white" %>
+23:                <% end %>
+24:              <% end %>
+25:            </div> 
+26:    
+27:            <div class='col-3 text-center'> 
+28:              <% if user_signed_in? %>
+29:                <% unless current_user.admin? %>
+30:                  <%= link_to 'フォローリスト', {controller: :users, action: :follow}, class: "brand-list, text-white" %>
+31:                <% end %>
+32:              <% end %>
+33:            </div> 
+34:    
+35:            <% if user_signed_in? %>
+36:              <div class='col-3 text-center'> 
+37:                <%#= link_to user_path(current_user.id), class: "text-white" do %>
+38:                  <%= current_user.nickname %>
+39:                  <%= image_tag current_user.profile_image.variant(resize: '70x70'), class: "user-image" if current_user.profile_image.attached? %>
+40:                  <%= image_tag "user_nil.png" , size: "70x70" unless current_user.profile_image.attached?  %>
+41:                <% end %>
+42:              </div> 
+43:              <div class='col-3 text-center'> 
+44:                <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %>
+45:              </div> 
+46:            <% else %>
+47:              <div class='col-3 text-center'> 
+48:                <%= link_to 'ログイン', new_user_session_path, class: "login, text-white" %>
+49:              </div> 
+50:              <div class='col-3 text-center'> 
+51:                <%= link_to '新規登録', new_user_registration_path, class: "sign-up, text-white" %>
+52:              </div> 
+53:            <% end %>  
+54:        </div>
+55:      </div>
+56:    </header>
+  
+app/views/shared/_header.html.erb:46: else without rescue is useless
+app/views/shared/_header.html.erb:58: syntax error, unexpected `end', expecting end-of-input
+app/views/shared/_header.html.erb:46: else without rescue is useless
+app/views/shared/_header.html.erb:58: syntax error, unexpected `end', expecting end-of-input
+app/views/shared/_header.html.erb:46: else without rescue is useless
+app/views/shared/_header.html.erb:58: syntax error, unexpected `end', expecting end-of-input
+app/views/shared/_header.html.erb:46: else without rescue is useless
+app/views/shared/_header.html.erb:58: syntax error, unexpected `end', expecting end-of-input
+app/views/shared/_header.html.erb:46: else without rescue is useless
+app/views/shared/_header.html.erb:58: syntax error, unexpected `end', expecting end-of-input
+app/views/shared/_header.html.erb:46: else without rescue is useless
+app/views/shared/_header.html.erb:58: syntax error, unexpected `end', expecting end-of-input
+app/views/rentals/index.html.erb:1
+Started GET "/" for ::1 at 2022-04-28 18:23:20 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 1.2ms | Allocations: 1853)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 1947)
+  Rendered layout layouts/application.html.erb (Duration: 1.9ms | Allocations: 2036)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms | Allocations: 2371)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <%# CSS・・・assets/stylesheets/shared/header.css %>
+<header class='top-page-header, container-fluid'>
+  <div class='row align-items-center justify-content-center'>
+    <div class='search-bar-contents, col'>
+      <div class='row align-items-center justify-content-center'>
+        <div class='col'> 
+          <%= link_to image_tag("Taking.png", size: '120x100', class:"Taking2-icon"), "/" %>
+          <%= link_to image_tag("by.png", size: '30x30', class:"by-icon"), "/" %>
+          <%= link_to image_tag("ankusu.png", size: '120x30', class:"ankusu-icon"), "/" %>
+        </div>
+      </div>
+    </div>
+  <%# コンポーネントを追加 %>
+    <div class='nav, col'>
+      <div class='lists-left, row align-items-center justify-content-center'>
+
+        <div class='col-3 text-center'> 
+          <% if user_signed_in? %>
+            <% unless current_user.admin? %>
+            <%= link_to 'フォロワーリスト', {controller: :users, action: :follower}, class: "brand-list, text-white" %>
+            <% else %>
+              <%#= link_to '作品の追加', new_movie_path, class: "brand-list, text-white" %>
+            <% end %>
+          <% end %>
+        </div> 
+
+        <div class='col-3 text-center'> 
+          <% if user_signed_in? %>
+            <% unless current_user.admin? %>
+              <%= link_to 'フォローリスト', {controller: :users, action: :follow}, class: "brand-list, text-white" %>
+            <% end %>
+          <% end %>
+        </div> 
+
+        <% if user_signed_in? %>
+          <div class='col-3 text-center'> 
+            <%#= link_to user_path(current_user.id), class: "text-white" do %>
+              <%= current_user.nickname %>
+              <%= image_tag current_user.profile_image.variant(resize: '70x70'), class: "user-image" if current_user.profile_image.attached? %>
+              <%= image_tag "user_nil.png" , size: "70x70" unless current_user.profile_image.attached?  %>
+            <% end %>
+          </div> 
+          <div class='col-3 text-center'> 
+            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %>
+          </div> 
+        <% else %>
+          <div class='col-3 text-center'> 
+            <%= link_to 'ログイン', new_user_session_path, class: "login, text-white" %>
+          </div> 
+          <div class='col-3 text-center'> 
+            <%= link_to '新規登録', new_user_registration_path, class: "sign-up, text-white" %>
+          </div> 
+        <% end %>  
+    </div>
+  </div>
+</header>
+):
+1:    <%# CSS・・・assets/stylesheets/shared/header.css %>
+2:    <header class='top-page-header, container-fluid'>
+3:      <div class='row align-items-center justify-content-center'>
+4:        <div class='search-bar-contents, col'>
+5:          <div class='row align-items-center justify-content-center'>
+6:            <div class='col'> 
+7:              <%= link_to image_tag("Taking.png", size: '120x100', class:"Taking2-icon"), "/" %>
+8:              <%= link_to image_tag("by.png", size: '30x30', class:"by-icon"), "/" %>
+9:              <%= link_to image_tag("ankusu.png", size: '120x30', class:"ankusu-icon"), "/" %>
+10:            </div>
+11:          </div>
+12:        </div>
+13:      <%# コンポーネントを追加 %>
+14:        <div class='nav, col'>
+15:          <div class='lists-left, row align-items-center justify-content-center'>
+16:    
+17:            <div class='col-3 text-center'> 
+18:              <% if user_signed_in? %>
+19:                <% unless current_user.admin? %>
+20:                <%= link_to 'フォロワーリスト', {controller: :users, action: :follower}, class: "brand-list, text-white" %>
+21:                <% else %>
+22:                  <%#= link_to '作品の追加', new_movie_path, class: "brand-list, text-white" %>
+23:                <% end %>
+24:              <% end %>
+25:            </div> 
+26:    
+27:            <div class='col-3 text-center'> 
+28:              <% if user_signed_in? %>
+29:                <% unless current_user.admin? %>
+30:                  <%= link_to 'フォローリスト', {controller: :users, action: :follow}, class: "brand-list, text-white" %>
+31:                <% end %>
+32:              <% end %>
+33:            </div> 
+34:    
+35:            <% if user_signed_in? %>
+36:              <div class='col-3 text-center'> 
+37:                <%#= link_to user_path(current_user.id), class: "text-white" do %>
+38:                  <%= current_user.nickname %>
+39:                  <%= image_tag current_user.profile_image.variant(resize: '70x70'), class: "user-image" if current_user.profile_image.attached? %>
+40:                  <%= image_tag "user_nil.png" , size: "70x70" unless current_user.profile_image.attached?  %>
+41:                <% end %>
+42:              </div> 
+43:              <div class='col-3 text-center'> 
+44:                <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %>
+45:              </div> 
+46:            <% else %>
+47:              <div class='col-3 text-center'> 
+48:                <%= link_to 'ログイン', new_user_session_path, class: "login, text-white" %>
+49:              </div> 
+50:              <div class='col-3 text-center'> 
+51:                <%= link_to '新規登録', new_user_registration_path, class: "sign-up, text-white" %>
+52:              </div> 
+53:            <% end %>  
+54:        </div>
+55:      </div>
+56:    </header>
+  
+app/views/shared/_header.html.erb:46: else without rescue is useless
+app/views/shared/_header.html.erb:58: syntax error, unexpected `end', expecting end-of-input
+app/views/shared/_header.html.erb:46: else without rescue is useless
+app/views/shared/_header.html.erb:58: syntax error, unexpected `end', expecting end-of-input
+app/views/shared/_header.html.erb:46: else without rescue is useless
+app/views/shared/_header.html.erb:58: syntax error, unexpected `end', expecting end-of-input
+app/views/shared/_header.html.erb:46: else without rescue is useless
+app/views/shared/_header.html.erb:58: syntax error, unexpected `end', expecting end-of-input
+app/views/shared/_header.html.erb:46: else without rescue is useless
+app/views/shared/_header.html.erb:58: syntax error, unexpected `end', expecting end-of-input
+app/views/shared/_header.html.erb:46: else without rescue is useless
+app/views/shared/_header.html.erb:58: syntax error, unexpected `end', expecting end-of-input
+app/views/rentals/index.html.erb:1
+Started GET "/" for ::1 at 2022-04-28 18:25:36 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 1.3ms | Allocations: 1853)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 1947)
+  Rendered layout layouts/application.html.erb (Duration: 3.9ms | Allocations: 2036)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms | Allocations: 2330)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <%# CSS・・・assets/stylesheets/shared/header.css %>
+<header class='top-page-header, container-fluid'>
+  <div class='row align-items-center justify-content-center'>
+    <div class='search-bar-contents, col'>
+      <div class='row align-items-center justify-content-center'>
+        <div class='col'> 
+          <%= link_to image_tag("Taking.png", size: '120x100', class:"Taking2-icon"), "/" %>
+          <%= link_to image_tag("by.png", size: '30x30', class:"by-icon"), "/" %>
+          <%= link_to image_tag("ankusu.png", size: '120x30', class:"ankusu-icon"), "/" %>
+        </div>
+      </div>
+    </div>
+  <%# コンポーネントを追加 %>
+    <div class='nav, col'>
+      <div class='lists-left, row align-items-center justify-content-center'>
+
+        <div class='col-3 text-center'> 
+          <% if user_signed_in? %>
+            <% unless current_user.admin? %>
+            <%= link_to 'フォロワーリスト', {controller: :users, action: :follower}, class: "brand-list, text-white" %>
+            <% else %>
+              <%#= link_to '作品の追加', new_movie_path, class: "brand-list, text-white" %>
+            <% end %>
+          <% end %>
+        </div> 
+
+        <div class='col-3 text-center'> 
+          <% if user_signed_in? %>
+            <% unless current_user.admin? %>
+              <%= link_to 'フォローリスト', {controller: :users, action: :follow}, class: "brand-list, text-white" %>
+            <% end %>
+          <% end %>
+        </div> 
+
+        <% if user_signed_in? %>
+          <div class='col-3 text-center'> 
+            <%#= link_to user_path(current_user.id), class: "text-white" do %>
+              <%= current_user.nickname %>
+              <%= image_tag current_user.profile_image.variant(resize: '70x70'), class: "user-image" if current_user.profile_image.attached? %>
+              <%= image_tag "user_nil.png" , size: "70x70" unless current_user.profile_image.attached?  %>
+            <% end %>
+          </div> 
+          <div class='col-3 text-center'> 
+            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %>
+          </div> 
+        <% else %>
+          <div class='col-3 text-center'> 
+            <%= link_to 'ログイン', new_user_session_path, class: "login, text-white" %>
+          </div> 
+          <div class='col-3 text-center'> 
+            <%= link_to '新規登録', new_user_registration_path, class: "sign-up, text-white" %>
+          </div> 
+        <% end %>  
+    </div>
+  </div>
+</header>
+):
+1:    <%# CSS・・・assets/stylesheets/shared/header.css %>
+2:    <header class='top-page-header, container-fluid'>
+3:      <div class='row align-items-center justify-content-center'>
+4:        <div class='search-bar-contents, col'>
+5:          <div class='row align-items-center justify-content-center'>
+6:            <div class='col'> 
+7:              <%= link_to image_tag("Taking.png", size: '120x100', class:"Taking2-icon"), "/" %>
+8:              <%= link_to image_tag("by.png", size: '30x30', class:"by-icon"), "/" %>
+9:              <%= link_to image_tag("ankusu.png", size: '120x30', class:"ankusu-icon"), "/" %>
+10:            </div>
+11:          </div>
+12:        </div>
+13:      <%# コンポーネントを追加 %>
+14:        <div class='nav, col'>
+15:          <div class='lists-left, row align-items-center justify-content-center'>
+16:    
+17:            <div class='col-3 text-center'> 
+18:              <% if user_signed_in? %>
+19:                <% unless current_user.admin? %>
+20:                <%= link_to 'フォロワーリスト', {controller: :users, action: :follower}, class: "brand-list, text-white" %>
+21:                <% else %>
+22:                  <%#= link_to '作品の追加', new_movie_path, class: "brand-list, text-white" %>
+23:                <% end %>
+24:              <% end %>
+25:            </div> 
+26:    
+27:            <div class='col-3 text-center'> 
+28:              <% if user_signed_in? %>
+29:                <% unless current_user.admin? %>
+30:                  <%= link_to 'フォローリスト', {controller: :users, action: :follow}, class: "brand-list, text-white" %>
+31:                <% end %>
+32:              <% end %>
+33:            </div> 
+34:    
+35:            <% if user_signed_in? %>
+36:              <div class='col-3 text-center'> 
+37:                <%#= link_to user_path(current_user.id), class: "text-white" do %>
+38:                  <%= current_user.nickname %>
+39:                  <%= image_tag current_user.profile_image.variant(resize: '70x70'), class: "user-image" if current_user.profile_image.attached? %>
+40:                  <%= image_tag "user_nil.png" , size: "70x70" unless current_user.profile_image.attached?  %>
+41:                <% end %>
+42:              </div> 
+43:              <div class='col-3 text-center'> 
+44:                <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %>
+45:              </div> 
+46:            <% else %>
+47:              <div class='col-3 text-center'> 
+48:                <%= link_to 'ログイン', new_user_session_path, class: "login, text-white" %>
+49:              </div> 
+50:              <div class='col-3 text-center'> 
+51:                <%= link_to '新規登録', new_user_registration_path, class: "sign-up, text-white" %>
+52:              </div> 
+53:            <% end %>  
+54:        </div>
+55:      </div>
+56:    </header>
+  
+app/views/shared/_header.html.erb:46: else without rescue is useless
+app/views/shared/_header.html.erb:58: syntax error, unexpected `end', expecting end-of-input
+app/views/shared/_header.html.erb:46: else without rescue is useless
+app/views/shared/_header.html.erb:58: syntax error, unexpected `end', expecting end-of-input
+app/views/shared/_header.html.erb:46: else without rescue is useless
+app/views/shared/_header.html.erb:58: syntax error, unexpected `end', expecting end-of-input
+app/views/shared/_header.html.erb:46: else without rescue is useless
+app/views/shared/_header.html.erb:58: syntax error, unexpected `end', expecting end-of-input
+app/views/shared/_header.html.erb:46: else without rescue is useless
+app/views/shared/_header.html.erb:58: syntax error, unexpected `end', expecting end-of-input
+app/views/shared/_header.html.erb:46: else without rescue is useless
+app/views/shared/_header.html.erb:58: syntax error, unexpected `end', expecting end-of-input
+app/views/rentals/index.html.erb:1
+Started GET "/" for ::1 at 2022-04-28 18:27:05 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_header.html.erb:18
+  Rendered shared/_header.html.erb (Duration: 16.9ms | Allocations: 12320)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 18.3ms | Allocations: 12626)
+  Rendered layout layouts/application.html.erb (Duration: 19.1ms | Allocations: 12720)
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 0.3ms | Allocations: 13553)
+
+
+  
+ActionView::Template::Error (undefined method `nickname' for #<User id: 1, name: "管理者", admin: true, deleted_at: nil, created_at: "2022-04-27 12:31:05.176626000 +0000", updated_at: "2022-04-27 12:31:05.176626000 +0000">):
+    35:         <% if user_signed_in? %>
+    36:           <div class='col-3 text-center'> 
+    37:             <%#= link_to user_path(current_user.id), class: "text-white" do %>
+    38:               <%= current_user.nickname %>
+    39:               <%= image_tag current_user.profile_image.variant(resize: '70x70'), class: "user-image" if current_user.profile_image.attached? %>
+    40:               <%= image_tag "user_nil.png" , size: "70x70" unless current_user.profile_image.attached?  %>
+    41:             <%# end %>
+  
+app/views/shared/_header.html.erb:38
+app/views/rentals/index.html.erb:1
+Started GET "/" for ::1 at 2022-04-28 18:27:42 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_header.html.erb:18
+  Rendered shared/_header.html.erb (Duration: 17.5ms | Allocations: 12172)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 19.7ms | Allocations: 12478)
+  Rendered layout layouts/application.html.erb (Duration: 20.3ms | Allocations: 12572)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 0.2ms | Allocations: 13429)
+
+
+  
+ActionView::Template::Error (undefined method `profile_image' for #<User id: 1, name: "管理者", admin: true, deleted_at: nil, created_at: "2022-04-27 12:31:05.176626000 +0000", updated_at: "2022-04-27 12:31:05.176626000 +0000">):
+    36:           <div class='col-3 text-center'> 
+    37:             <%#= link_to user_path(current_user.id), class: "text-white" do %>
+    38:               <%= current_user.name %>
+    39:               <%= image_tag current_user.profile_image.variant(resize: '70x70'), class: "user-image" if current_user.profile_image.attached? %>
+    40:               <%= image_tag "user_nil.png" , size: "70x70" unless current_user.profile_image.attached?  %>
+    41:             <%# end %>
+    42:           </div> 
+  
+app/views/shared/_header.html.erb:39
+app/views/rentals/index.html.erb:1
+Started GET "/" for ::1 at 2022-04-28 18:28:29 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_header.html.erb:18
+  Rendered shared/_header.html.erb (Duration: 7.7ms | Allocations: 3784)
+  Rendered shared/_footer.html.erb (Duration: 0.3ms | Allocations: 129)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 10.8ms | Allocations: 4336)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 91.6ms | Allocations: 17567)
+Completed 200 OK in 101ms (Views: 97.9ms | ActiveRecord: 0.2ms | Allocations: 18454)
+
+
+Started GET "/users/sign_out" for ::1 at 2022-04-28 18:33:32 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+  
+Started GET "/" for ::1 at 2022-04-28 18:38:11 +0900
+  [1m[35m (4.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_header.html.erb:18
+  Rendered shared/_header.html.erb (Duration: 1023.8ms | Allocations: 333674)
+  Rendered shared/_footer.html.erb (Duration: 0.3ms | Allocations: 164)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 1077.5ms | Allocations: 334628)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 1169.4ms | Allocations: 347946)
+Completed 200 OK in 1242ms (Views: 1193.0ms | ActiveRecord: 1.1ms | Allocations: 354567)
+
+
+Started GET "/users/sign_out" for ::1 at 2022-04-28 18:38:14 +0900
+Processing by Devise::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 348ms (ActiveRecord: 0.2ms | Allocations: 149312)
+
+
+Started GET "/" for ::1 at 2022-04-28 18:38:15 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 6.9ms | Allocations: 2317)
+  Rendered shared/_footer.html.erb (Duration: 0.1ms | Allocations: 17)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 8.5ms | Allocations: 2497)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 102.5ms | Allocations: 15379)
+Completed 200 OK in 107ms (Views: 105.8ms | ActiveRecord: 0.0ms | Allocations: 15767)
+
+
+Started GET "/users/sign_up" for ::1 at 2022-04-28 18:38:25 +0900
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered shared/_second-header.html.erb (Duration: 4.6ms | Allocations: 990)
+  Rendered shared/_error_messages.html.erb (Duration: 0.9ms | Allocations: 211)
+  Rendered shared/_footer.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 26.3ms | Allocations: 2917)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 124.6ms | Allocations: 15954)
+Completed 200 OK in 143ms (Views: 139.1ms | ActiveRecord: 0.0ms | Allocations: 17436)
+
+
+Started POST "/users" for ::1 at 2022-04-28 18:38:53 +0900
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"畑野貴洋", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"会員登録"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (25.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "encrypted_password", "admin", "deleted_at", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "畑野貴洋"], ["encrypted_password", "[FILTERED]"], ["admin", 0], ["deleted_at", nil], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["created_at", "2022-04-28 09:38:54.235495"], ["updated_at", "2022-04-28 09:38:54.235495"]]
+  [1m[36mTRANSACTION (21.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 451ms (ActiveRecord: 46.5ms | Allocations: 8464)
+
+
+Started GET "/" for ::1 at 2022-04-28 18:38:54 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/shared/_header.html.erb:18
+  Rendered shared/_header.html.erb (Duration: 15.3ms | Allocations: 5238)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 16.0ms | Allocations: 5340)
+  Rendered layout layouts/application.html.erb (Duration: 19.0ms | Allocations: 5430)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 0.3ms | Allocations: 5812)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"follower", :controller=>"users"}):
+    17:         <div class='col-3 text-center'> 
+    18:           <% if user_signed_in? %>
+    19:             <% unless current_user.admin? %>
+    20:             <%= link_to 'フォロワーリスト', {controller: :users, action: :follower}, class: "brand-list, text-white" %>
+    21:             <% else %>
+    22:               <%#= link_to '作品の追加', new_movie_path, class: "brand-list, text-white" %>
+    23:             <% end %>
+  
+app/views/shared/_header.html.erb:20
+app/views/rentals/index.html.erb:1
+Started GET "/" for ::1 at 2022-04-28 18:41:20 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/shared/_header.html.erb:23
+  Rendered shared/_header.html.erb (Duration: 63.2ms | Allocations: 3643)
+  Rendered shared/_footer.html.erb (Duration: 0.5ms | Allocations: 129)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 68.4ms | Allocations: 4195)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 141.4ms | Allocations: 17416)
+Completed 200 OK in 151ms (Views: 148.1ms | ActiveRecord: 0.2ms | Allocations: 18334)
+
+
+Started GET "/users/sign_out" for ::1 at 2022-04-28 18:53:18 +0900
+Processing by Devise::SessionsController#destroy as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 10ms (ActiveRecord: 0.8ms | Allocations: 2990)
+
+
+Started GET "/" for ::1 at 2022-04-28 18:53:18 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 5.0ms | Allocations: 2050)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 17)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 6.2ms | Allocations: 2223)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 81.3ms | Allocations: 15061)
+Completed 200 OK in 84ms (Views: 82.8ms | ActiveRecord: 0.0ms | Allocations: 15397)
+
+
+Started GET "/users/sign_in" for ::1 at 2022-04-28 18:53:22 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered shared/_second-header.html.erb (Duration: 5.1ms | Allocations: 982)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 18)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 10.7ms | Allocations: 1981)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 82.4ms | Allocations: 14944)
+Completed 200 OK in 93ms (Views: 91.5ms | ActiveRecord: 0.0ms | Allocations: 16133)
+
+
+Started GET "/" for ::1 at 2022-04-28 18:59:39 +0900
+Processing by RentalsController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/rentals_controller.rb:4:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 3030.0ms | Allocations: 117275)
+  Rendered shared/_footer.html.erb (Duration: 0.3ms | Allocations: 134)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 3033.6ms | Allocations: 117837)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 3113.6ms | Allocations: 131214)
+Completed 200 OK in 3150ms (Views: 3122.0ms | ActiveRecord: 0.4ms | Allocations: 132735)
+
+
+Started GET "/" for ::1 at 2022-04-28 19:01:19 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 5.0ms | Allocations: 2743)
+  Rendered shared/_footer.html.erb (Duration: 0.2ms | Allocations: 129)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 7.9ms | Allocations: 3295)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 2118.3ms | Allocations: 62585)
+Completed 200 OK in 2160ms (Views: 2157.8ms | ActiveRecord: 0.0ms | Allocations: 63505)
+
+
+Started GET "/" for ::1 at 2022-04-28 19:02:38 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 5.5ms | Allocations: 2047)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 17)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 7.6ms | Allocations: 2220)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 72.7ms | Allocations: 15082)
+Completed 200 OK in 75ms (Views: 73.8ms | ActiveRecord: 0.0ms | Allocations: 15442)
+
+
+Started GET "/" for ::1 at 2022-04-28 19:02:40 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 4.2ms | Allocations: 2032)
+  Rendered shared/_footer.html.erb (Duration: 0.1ms | Allocations: 17)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 5.1ms | Allocations: 2205)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 62.9ms | Allocations: 15067)
+Completed 200 OK in 66ms (Views: 65.0ms | ActiveRecord: 0.0ms | Allocations: 15386)
+
+
+Started GET "/" for ::1 at 2022-04-28 19:03:34 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 5.0ms | Allocations: 2740)
+  Rendered shared/_footer.html.erb (Duration: 0.3ms | Allocations: 129)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 8.0ms | Allocations: 3297)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 82.8ms | Allocations: 16490)
+Completed 200 OK in 93ms (Views: 90.0ms | ActiveRecord: 0.0ms | Allocations: 17368)
+
+
+Started GET "/" for ::1 at 2022-04-28 19:14:01 +0900
+Processing by RentalsController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/rentals_controller.rb:4:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 6.7ms | Allocations: 2737)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 14.5ms | Allocations: 6055)
+  Rendered layout layouts/application.html.erb (Duration: 15.4ms | Allocations: 6149)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 0.6ms | Allocations: 7635)
+
+
+  
+ActionView::Template::Error (The asset "pickup1.jpeg" is not present in the asset pipeline.
+):
+    13:     </ol>
+    14:     <div class="carousel-inner text-center">
+    15:         <div class="carousel-item active">
+    16:           <%= link_to image_tag("pickup1.jpeg", size: '900x500', alt: 'First slide'), movie_path(1) %>
+    17:         </div>
+    18:         <div class="carousel-item">
+    19:           <%= link_to image_tag("pickup2.jpeg", size: '900x500', alt: 'Second slide'), movie_path(2) %>
+  
+app/views/rentals/index.html.erb:16
+Started GET "/" for ::1 at 2022-04-28 19:14:25 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 5.7ms | Allocations: 2747)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 8.6ms | Allocations: 5831)
+  Rendered layout layouts/application.html.erb (Duration: 9.7ms | Allocations: 5925)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.0ms | Allocations: 6810)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    19:     <% end %>
+    20:     <h5 class="subtitle">新規投稿商品</h5>
+    21:     <div class="row" style="width:100%">
+    22:       <% @movies.each do |m| %>
+    23:         <div class='movie-lists, col-3'>
+    24: 
+    25:           <%= link_to movie_path(m.id) do %>
+  
+app/views/rentals/index.html.erb:22
+Started GET "/" for ::1 at 2022-04-28 19:15:19 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 7.4ms | Allocations: 2747)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 11.3ms | Allocations: 5807)
+  Rendered layout layouts/application.html.erb (Duration: 12.2ms | Allocations: 5901)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.0ms | Allocations: 6784)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    19:     <% end %>
+    20:     <h5 class="subtitle">新規投稿商品</h5>
+    21:     <div class="row" style="width:100%">
+    22:       <% @rentals.each do |m| %>
+    23:         <div class='rental-lists, col-3'>
+    24: 
+    25:           <%= link_to rental_path(m.id) do %>
+  
+app/views/rentals/index.html.erb:22
+Started GET "/" for ::1 at 2022-04-28 19:15:21 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 4.5ms | Allocations: 2042)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 6.2ms | Allocations: 4411)
+  Rendered layout layouts/application.html.erb (Duration: 7.1ms | Allocations: 4499)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms | Allocations: 4833)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    19:     <% end %>
+    20:     <h5 class="subtitle">新規投稿商品</h5>
+    21:     <div class="row" style="width:100%">
+    22:       <% @rentals.each do |m| %>
+    23:         <div class='rental-lists, col-3'>
+    24: 
+    25:           <%= link_to rental_path(m.id) do %>
+  
+app/views/rentals/index.html.erb:22
+Started GET "/" for ::1 at 2022-04-28 19:16:52 +0900
+Processing by RentalsController#index as HTML
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/rentals_controller.rb:4:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 6.1ms | Allocations: 2319)
+  [1m[36mRental Load (48.7ms)[0m  [1m[34mSELECT "rentals".* FROM "rentals" ORDER BY created_at DESC[0m
+  ↳ app/views/rentals/index.html.erb:22
+  Rendered rentals/index.html.erb within layouts/application (Duration: 81.4ms | Allocations: 8599)
+  Rendered layout layouts/application.html.erb (Duration: 82.4ms | Allocations: 8702)
+Completed 500 Internal Server Error in 92ms (ActiveRecord: 49.1ms | Allocations: 11612)
+
+
+  
+ActionView::Template::Error (undefined method `total_pages' for #<ActiveRecord::Relation []>):
+    44:         </div>
+    45:       <% end %>
+    46:     </div> 
+    47:     <%= paginate @rentals %>
+    48:   </div>
+    49: </div>
+    50: <%= render "shared/footer" %>
+  
+app/views/rentals/index.html.erb:47
+Started GET "/" for ::1 at 2022-04-28 19:19:46 +0900
+Processing by RentalsController#index as HTML
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/rentals_controller.rb:4:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 6.9ms | Allocations: 2319)
+  [1m[36mRental Load (42.2ms)[0m  [1m[34mSELECT "rentals".* FROM "rentals" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  ↳ app/views/rentals/index.html.erb:22
+  Rendered shared/_footer.html.erb (Duration: 0.2ms | Allocations: 130)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 63.3ms | Allocations: 4256)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 3676.0ms | Allocations: 88019)
+Completed 200 OK in 3692ms (Views: 3635.4ms | ActiveRecord: 43.1ms | Allocations: 96205)
+
+
+Started GET "/" for ::1 at 2022-04-28 19:28:14 +0900
+Processing by RentalsController#index as HTML
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/rentals_controller.rb:4:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 6.8ms | Allocations: 2732)
+  [1m[36mRental Load (0.3ms)[0m  [1m[34mSELECT "rentals".* FROM "rentals" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  ↳ app/views/rentals/index.html.erb:22
+  Rendered shared/_footer.html.erb (Duration: 0.3ms | Allocations: 129)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 15.3ms | Allocations: 5113)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 90.3ms | Allocations: 18322)
+Completed 200 OK in 100ms (Views: 94.9ms | ActiveRecord: 0.7ms | Allocations: 19909)
+
+
+Started GET "/" for ::1 at 2022-04-28 19:29:33 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 5.2ms | Allocations: 2735)
+  [1m[36mRental Load (0.3ms)[0m  [1m[34mSELECT "rentals".* FROM "rentals" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  ↳ app/views/rentals/index.html.erb:21
+  Rendered shared/_footer.html.erb (Duration: 0.2ms | Allocations: 129)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 13.6ms | Allocations: 5093)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 83.5ms | Allocations: 18256)
+Completed 200 OK in 91ms (Views: 88.2ms | ActiveRecord: 0.3ms | Allocations: 19266)
+
+
+Started GET "/" for ::1 at 2022-04-28 19:30:53 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 4.4ms | Allocations: 2030)
+  [1m[36mRental Load (0.4ms)[0m  [1m[34mSELECT "rentals".* FROM "rentals" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  ↳ app/views/rentals/index.html.erb:21
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 17)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 9.3ms | Allocations: 3027)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 2047.8ms | Allocations: 67971)
+Completed 200 OK in 2051ms (Views: 2048.9ms | ActiveRecord: 0.4ms | Allocations: 68435)
+
+
+Started GET "/images/red-curtain.jpeg" for ::1 at 2022-04-28 19:30:56 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/images/red-curtain.jpeg"):
+  
+Started GET "/" for ::1 at 2022-04-28 19:32:24 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 5.1ms | Allocations: 2735)
+  [1m[36mRental Load (0.6ms)[0m  [1m[34mSELECT "rentals".* FROM "rentals" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  ↳ app/views/rentals/index.html.erb:21
+  Rendered shared/_footer.html.erb (Duration: 0.3ms | Allocations: 129)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 14.9ms | Allocations: 5093)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 76.8ms | Allocations: 18250)
+Completed 200 OK in 86ms (Views: 80.9ms | ActiveRecord: 0.6ms | Allocations: 19269)
+
+
+Started GET "/images/red-curtain.jpeg" for ::1 at 2022-04-28 19:32:24 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/images/red-curtain.jpeg"):
+  
+Started GET "/" for ::1 at 2022-04-28 19:33:12 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 16.2ms | Allocations: 2741)
+  [1m[36mRental Load (0.5ms)[0m  [1m[34mSELECT "rentals".* FROM "rentals" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  ↳ app/views/rentals/index.html.erb:21
+  Rendered shared/_footer.html.erb (Duration: 1.0ms | Allocations: 129)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 75.5ms | Allocations: 5120)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 165.1ms | Allocations: 18278)
+Completed 200 OK in 180ms (Views: 172.0ms | ActiveRecord: 0.5ms | Allocations: 19286)
+
+
+Started GET "/images/red-curtain.jpeg" for ::1 at 2022-04-28 19:33:13 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/images/red-curtain.jpeg"):
+  
+Started GET "/" for ::1 at 2022-04-28 19:34:44 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 4.9ms | Allocations: 2022)
+  [1m[36mRental Load (0.3ms)[0m  [1m[34mSELECT "rentals".* FROM "rentals" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  ↳ app/views/rentals/index.html.erb:21
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 17)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 8.2ms | Allocations: 3021)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 2037.2ms | Allocations: 67954)
+Completed 200 OK in 2042ms (Views: 2038.5ms | ActiveRecord: 0.3ms | Allocations: 68418)
+
+
+Started GET "/images/red-curtain.jpeg" for ::1 at 2022-04-28 19:34:46 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/images/red-curtain.jpeg"):
+  
+Started GET "/users/sign_up" for ::1 at 2022-04-28 19:37:00 +0900
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered shared/_second-header.html.erb (Duration: 2.1ms | Allocations: 985)
+  Rendered shared/_error_messages.html.erb (Duration: 0.3ms | Allocations: 201)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 18)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 6.7ms | Allocations: 2369)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 68.4ms | Allocations: 15278)
+Completed 200 OK in 82ms (Views: 77.8ms | ActiveRecord: 0.6ms | Allocations: 19256)
+
+
+Started GET "/" for ::1 at 2022-04-28 19:37:03 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 4.4ms | Allocations: 2092)
+  [1m[36mRental Load (0.3ms)[0m  [1m[34mSELECT "rentals".* FROM "rentals" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  ↳ app/views/rentals/index.html.erb:21
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 17)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 6.7ms | Allocations: 3184)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 81.3ms | Allocations: 16008)
+Completed 200 OK in 85ms (Views: 82.5ms | ActiveRecord: 0.3ms | Allocations: 16481)
+
+
+Started GET "/images/red-curtain.jpeg" for ::1 at 2022-04-28 19:37:03 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/images/red-curtain.jpeg"):
+  
+Started GET "/users/sign_in" for ::1 at 2022-04-28 19:37:05 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered shared/_second-header.html.erb (Duration: 2.1ms | Allocations: 865)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 18)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 4.1ms | Allocations: 1800)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 62.5ms | Allocations: 14715)
+Completed 200 OK in 70ms (Views: 67.9ms | ActiveRecord: 0.0ms | Allocations: 16088)
+
+
+Started GET "/" for ::1 at 2022-04-28 19:37:06 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 4.0ms | Allocations: 2089)
+  [1m[36mRental Load (0.3ms)[0m  [1m[34mSELECT "rentals".* FROM "rentals" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  ↳ app/views/rentals/index.html.erb:21
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 17)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 7.0ms | Allocations: 3186)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 83.3ms | Allocations: 16012)
+Completed 200 OK in 87ms (Views: 84.3ms | ActiveRecord: 0.3ms | Allocations: 16485)
+
+
+Started GET "/" for ::1 at 2022-04-28 19:42:46 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 5.4ms | Allocations: 2047)
+  [1m[36mRental Load (0.3ms)[0m  [1m[34mSELECT "rentals".* FROM "rentals" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  ↳ app/views/rentals/index.html.erb:21
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 17)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 10.3ms | Allocations: 3046)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 2035.1ms | Allocations: 67854)
+Completed 200 OK in 2038ms (Views: 2036.2ms | ActiveRecord: 0.3ms | Allocations: 68273)
+
+
+Started GET "/images/red-curtain.jpeg" for ::1 at 2022-04-28 19:42:48 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/images/red-curtain.jpeg"):
+  
+Started GET "/" for ::1 at 2022-04-28 19:43:41 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 4.2ms | Allocations: 2018)
+  [1m[36mRental Load (0.3ms)[0m  [1m[34mSELECT "rentals".* FROM "rentals" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  ↳ app/views/rentals/index.html.erb:21
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 17)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 48.5ms | Allocations: 3017)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 1947.5ms | Allocations: 67638)
+Completed 200 OK in 1950ms (Views: 1948.4ms | ActiveRecord: 0.3ms | Allocations: 68055)
+
+
+Started GET "/images/red-curtain.jpeg" for ::1 at 2022-04-28 19:43:43 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/images/red-curtain.jpeg"):
+  
+Started GET "/" for ::1 at 2022-04-28 19:46:53 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 4.7ms | Allocations: 2738)
+  [1m[36mRental Load (0.3ms)[0m  [1m[34mSELECT "rentals".* FROM "rentals" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  ↳ app/views/rentals/index.html.erb:21
+  Rendered shared/_footer.html.erb (Duration: 0.2ms | Allocations: 129)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 13.4ms | Allocations: 5113)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 85.4ms | Allocations: 18264)
+Completed 200 OK in 94ms (Views: 89.9ms | ActiveRecord: 0.3ms | Allocations: 19226)
+
+
+Started GET "/images/red-curtain.jpeg" for ::1 at 2022-04-28 19:46:53 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/images/red-curtain.jpeg"):
+  
+Started GET "/" for ::1 at 2022-04-28 19:47:40 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 8.7ms | Allocations: 2738)
+  [1m[36mRental Load (0.6ms)[0m  [1m[34mSELECT "rentals".* FROM "rentals" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  ↳ app/views/rentals/index.html.erb:21
+  Rendered shared/_footer.html.erb (Duration: 0.3ms | Allocations: 129)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 19.8ms | Allocations: 5114)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 120.4ms | Allocations: 18267)
+Completed 200 OK in 133ms (Views: 126.7ms | ActiveRecord: 0.6ms | Allocations: 19275)
+
+
+Started GET "/images/red-curtain.jpeg" for ::1 at 2022-04-28 19:47:41 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/images/red-curtain.jpeg"):
+  
+Started GET "/" for ::1 at 2022-04-28 19:50:23 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 6.3ms | Allocations: 2739)
+  [1m[36mRental Load (0.3ms)[0m  [1m[34mSELECT "rentals".* FROM "rentals" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  ↳ app/views/rentals/index.html.erb:21
+  Rendered shared/_footer.html.erb (Duration: 0.3ms | Allocations: 129)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 15.6ms | Allocations: 5115)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 83.7ms | Allocations: 18267)
+Completed 200 OK in 92ms (Views: 88.4ms | ActiveRecord: 0.3ms | Allocations: 19275)
+
+
+Started GET "/images/red-curtain.jpeg" for ::1 at 2022-04-28 19:50:23 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/images/red-curtain.jpeg"):
+  
+Started GET "/" for ::1 at 2022-04-28 19:50:25 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 5.3ms | Allocations: 2033)
+  [1m[36mRental Load (0.4ms)[0m  [1m[34mSELECT "rentals".* FROM "rentals" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  ↳ app/views/rentals/index.html.erb:21
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 17)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 7.8ms | Allocations: 3032)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 69.3ms | Allocations: 15856)
+Completed 200 OK in 78ms (Views: 74.6ms | ActiveRecord: 0.4ms | Allocations: 16320)
+
+
+Started GET "/" for ::1 at 2022-04-28 19:53:04 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 6.0ms | Allocations: 2750)
+  [1m[36mRental Load (0.3ms)[0m  [1m[34mSELECT "rentals".* FROM "rentals" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  ↳ app/views/rentals/index.html.erb:21
+  Rendered shared/_footer.html.erb (Duration: 0.3ms | Allocations: 129)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 13.7ms | Allocations: 5124)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 2022.3ms | Allocations: 70265)
+Completed 200 OK in 2030ms (Views: 2027.2ms | ActiveRecord: 0.3ms | Allocations: 71226)
+
+
+Started GET "/images/red-curtain.jpeg" for ::1 at 2022-04-28 19:53:06 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/images/red-curtain.jpeg"):
+  
+Started GET "/" for ::1 at 2022-04-28 19:54:37 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 5.1ms | Allocations: 2027)
+  [1m[36mRental Load (0.3ms)[0m  [1m[34mSELECT "rentals".* FROM "rentals" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  ↳ app/views/rentals/index.html.erb:21
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 17)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 7.8ms | Allocations: 3026)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 1941.9ms | Allocations: 67652)
+Completed 200 OK in 1945ms (Views: 1943.2ms | ActiveRecord: 0.3ms | Allocations: 68116)
+
+
+Started GET "/images/red-curtain.jpeg" for ::1 at 2022-04-28 19:54:39 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/images/red-curtain.jpeg"):
+  
+Started GET "/" for ::1 at 2022-04-28 19:55:42 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 6.3ms | Allocations: 2042)
+  [1m[36mRental Load (0.4ms)[0m  [1m[34mSELECT "rentals".* FROM "rentals" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  ↳ app/views/rentals/index.html.erb:21
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 17)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 9.6ms | Allocations: 3041)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 1955.0ms | Allocations: 67666)
+Completed 200 OK in 1958ms (Views: 1956.3ms | ActiveRecord: 0.4ms | Allocations: 68083)
+
+
+Started GET "/images/red-curtain.jpeg" for ::1 at 2022-04-28 19:55:44 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/images/red-curtain.jpeg"):
+  
+Started GET "/" for ::1 at 2022-04-28 19:56:34 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 6.3ms | Allocations: 2033)
+  [1m[36mRental Load (0.3ms)[0m  [1m[34mSELECT "rentals".* FROM "rentals" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  ↳ app/views/rentals/index.html.erb:21
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 17)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 9.6ms | Allocations: 3032)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 2004.9ms | Allocations: 67646)
+Completed 200 OK in 2008ms (Views: 2005.6ms | ActiveRecord: 0.3ms | Allocations: 68063)
+
+
+Started GET "/images/red-curtain.jpeg" for ::1 at 2022-04-28 19:56:36 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/images/red-curtain.jpeg"):
+  
+Started GET "/" for ::1 at 2022-04-28 19:57:08 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 4.6ms | Allocations: 2042)
+  [1m[36mRental Load (0.3ms)[0m  [1m[34mSELECT "rentals".* FROM "rentals" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  ↳ app/views/rentals/index.html.erb:21
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 17)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 7.7ms | Allocations: 3041)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 2262.9ms | Allocations: 67662)
+Completed 200 OK in 2266ms (Views: 2264.3ms | ActiveRecord: 0.3ms | Allocations: 68079)
+
+
+Started GET "/images/red-curtain.jpeg" for ::1 at 2022-04-28 19:57:11 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/images/red-curtain.jpeg"):
+  
+Started GET "/" for ::1 at 2022-04-28 20:00:26 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 4.7ms | Allocations: 2021)
+  [1m[36mRental Load (0.3ms)[0m  [1m[34mSELECT "rentals".* FROM "rentals" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  ↳ app/views/rentals/index.html.erb:21
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 17)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 7.5ms | Allocations: 3020)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 70.9ms | Allocations: 15843)
+Completed 200 OK in 74ms (Views: 71.8ms | ActiveRecord: 0.3ms | Allocations: 16260)
+
+
+Started GET "/images/red-curtain.jpeg" for ::1 at 2022-04-28 20:00:26 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/images/red-curtain.jpeg"):
+  
+Started GET "/" for ::1 at 2022-04-28 20:00:56 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 4.2ms | Allocations: 2039)
+  [1m[36mRental Load (0.3ms)[0m  [1m[34mSELECT "rentals".* FROM "rentals" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  ↳ app/views/rentals/index.html.erb:21
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 17)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 7.1ms | Allocations: 3038)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 2048.3ms | Allocations: 67654)
+Completed 200 OK in 2052ms (Views: 2050.3ms | ActiveRecord: 0.3ms | Allocations: 68071)
+
+
+Started GET "/images/red-curtain.jpeg" for ::1 at 2022-04-28 20:00:59 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/images/red-curtain.jpeg"):
+  
+Started GET "/" for ::1 at 2022-04-28 20:01:46 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 6.6ms | Allocations: 2739)
+  [1m[36mRental Load (0.3ms)[0m  [1m[34mSELECT "rentals".* FROM "rentals" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  ↳ app/views/rentals/index.html.erb:21
+  Rendered shared/_footer.html.erb (Duration: 0.2ms | Allocations: 129)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 14.5ms | Allocations: 5114)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 92.6ms | Allocations: 18265)
+Completed 200 OK in 100ms (Views: 97.2ms | ActiveRecord: 0.3ms | Allocations: 19226)
+
+
+Started GET "/images/red-curtain.jpeg" for ::1 at 2022-04-28 20:01:47 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/images/red-curtain.jpeg"):
+  
+Started GET "/" for ::1 at 2022-04-28 20:02:13 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 5.1ms | Allocations: 2720)
+  [1m[36mRental Load (0.5ms)[0m  [1m[34mSELECT "rentals".* FROM "rentals" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  ↳ app/views/rentals/index.html.erb:21
+  Rendered shared/_footer.html.erb (Duration: 0.3ms | Allocations: 129)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 13.8ms | Allocations: 5095)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 76.1ms | Allocations: 18247)
+Completed 200 OK in 84ms (Views: 80.7ms | ActiveRecord: 0.5ms | Allocations: 19255)
+
+
+Started GET "/images/red-curtain.jpeg" for ::1 at 2022-04-28 20:02:14 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/images/red-curtain.jpeg"):
+  
+Started GET "/" for ::1 at 2022-04-28 20:03:06 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 10.2ms | Allocations: 2033)
+  [1m[36mRental Load (0.3ms)[0m  [1m[34mSELECT "rentals".* FROM "rentals" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  ↳ app/views/rentals/index.html.erb:21
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 17)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 13.1ms | Allocations: 3032)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 74.6ms | Allocations: 15857)
+Completed 200 OK in 78ms (Views: 75.7ms | ActiveRecord: 0.3ms | Allocations: 16321)
+
+
+Started GET "/images/red-curtain.jpeg" for ::1 at 2022-04-28 20:03:07 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/images/red-curtain.jpeg"):
+  
+Started GET "/" for ::1 at 2022-04-28 20:03:14 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 4.4ms | Allocations: 2052)
+  [1m[36mRental Load (0.5ms)[0m  [1m[34mSELECT "rentals".* FROM "rentals" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  ↳ app/views/rentals/index.html.erb:21
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 17)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 8.3ms | Allocations: 3051)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 73.5ms | Allocations: 15876)
+Completed 200 OK in 77ms (Views: 75.1ms | ActiveRecord: 0.5ms | Allocations: 16293)
+
+
+Started GET "/" for ::1 at 2022-04-28 20:03:15 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 4.4ms | Allocations: 2030)
+  [1m[36mRental Load (0.2ms)[0m  [1m[34mSELECT "rentals".* FROM "rentals" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  ↳ app/views/rentals/index.html.erb:21
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 17)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 6.7ms | Allocations: 3029)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 78.2ms | Allocations: 15854)
+Completed 200 OK in 82ms (Views: 79.8ms | ActiveRecord: 0.2ms | Allocations: 16271)
+
+
+Started GET "/" for ::1 at 2022-04-28 20:03:37 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 4.2ms | Allocations: 2018)
+  [1m[36mRental Load (0.3ms)[0m  [1m[34mSELECT "rentals".* FROM "rentals" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  ↳ app/views/rentals/index.html.erb:21
+  Rendered shared/_footer.html.erb (Duration: 0.1ms | Allocations: 17)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 9.3ms | Allocations: 3017)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 2028.9ms | Allocations: 67817)
+Completed 200 OK in 2032ms (Views: 2030.0ms | ActiveRecord: 0.3ms | Allocations: 68234)
+
+
+Started GET "/images/red-curtain.jpeg" for ::1 at 2022-04-28 20:03:39 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/images/red-curtain.jpeg"):
+  
+Started GET "/" for ::1 at 2022-04-28 20:05:37 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 4.3ms | Allocations: 2030)
+  [1m[36mRental Load (0.3ms)[0m  [1m[34mSELECT "rentals".* FROM "rentals" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  ↳ app/views/rentals/index.html.erb:21
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 17)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 7.7ms | Allocations: 3029)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 1914.4ms | Allocations: 67656)
+Completed 200 OK in 1918ms (Views: 1915.3ms | ActiveRecord: 0.3ms | Allocations: 68073)
+
+
+Started GET "/images/red-curtain.jpeg" for ::1 at 2022-04-28 20:05:39 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/images/red-curtain.jpeg"):
+  
+Started GET "/" for ::1 at 2022-04-28 20:06:13 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 4.2ms | Allocations: 2024)
+  [1m[36mRental Load (0.3ms)[0m  [1m[34mSELECT "rentals".* FROM "rentals" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  ↳ app/views/rentals/index.html.erb:21
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 17)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 7.1ms | Allocations: 3023)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 2090.4ms | Allocations: 67632)
+Completed 200 OK in 2093ms (Views: 2091.4ms | ActiveRecord: 0.3ms | Allocations: 68049)
+
+
+Started GET "/images/red-curtain.jpeg" for ::1 at 2022-04-28 20:06:15 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/images/red-curtain.jpeg"):
+  
+Started GET "/" for ::1 at 2022-04-28 20:09:01 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 4.8ms | Allocations: 2039)
+  [1m[36mRental Load (0.4ms)[0m  [1m[34mSELECT "rentals".* FROM "rentals" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  ↳ app/views/rentals/index.html.erb:21
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 17)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 10.5ms | Allocations: 3038)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 2053.3ms | Allocations: 65878)
+Completed 200 OK in 2058ms (Views: 2055.9ms | ActiveRecord: 0.4ms | Allocations: 66295)
+
+
+Started GET "/images/red-curtain.jpeg" for ::1 at 2022-04-28 20:09:04 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/images/red-curtain.jpeg"):
+  
+Started GET "/" for ::1 at 2022-04-28 20:10:48 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 4.5ms | Allocations: 2762)
+  [1m[36mRental Load (0.3ms)[0m  [1m[34mSELECT "rentals".* FROM "rentals" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  ↳ app/views/rentals/index.html.erb:21
+  Rendered shared/_footer.html.erb (Duration: 0.3ms | Allocations: 129)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 13.4ms | Allocations: 5136)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 83.8ms | Allocations: 18287)
+Completed 200 OK in 93ms (Views: 88.2ms | ActiveRecord: 0.3ms | Allocations: 19248)
+
+
+Started GET "/images/red-curtain.jpeg" for ::1 at 2022-04-28 20:10:49 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/images/red-curtain.jpeg"):
+  
+Started GET "/users/sign_up" for ::1 at 2022-04-28 20:10:52 +0900
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered shared/_second-header.html.erb (Duration: 2.2ms | Allocations: 982)
+  Rendered shared/_error_messages.html.erb (Duration: 0.3ms | Allocations: 200)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 18)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 6.4ms | Allocations: 2325)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 78.3ms | Allocations: 15285)
+Completed 200 OK in 87ms (Views: 85.5ms | ActiveRecord: 0.0ms | Allocations: 16392)
+
+
+Started GET "/" for ::1 at 2022-04-28 20:11:12 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 4.1ms | Allocations: 2080)
+  [1m[36mRental Load (0.4ms)[0m  [1m[34mSELECT "rentals".* FROM "rentals" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  ↳ app/views/rentals/index.html.erb:21
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 17)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 7.7ms | Allocations: 3177)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 78.2ms | Allocations: 16001)
+Completed 200 OK in 81ms (Views: 79.4ms | ActiveRecord: 0.4ms | Allocations: 16475)
+
+
+Started GET "/images/red-curtain.jpeg" for ::1 at 2022-04-28 20:11:12 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/images/red-curtain.jpeg"):
+  
+Started GET "/users/sign_in" for ::1 at 2022-04-28 20:11:14 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered shared/_second-header.html.erb (Duration: 1.7ms | Allocations: 869)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 18)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.9ms | Allocations: 1784)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 61.1ms | Allocations: 14744)
+Completed 200 OK in 69ms (Views: 67.4ms | ActiveRecord: 0.0ms | Allocations: 15784)
+
+
+Started GET "/" for ::1 at 2022-04-28 20:11:19 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 4.4ms | Allocations: 2101)
+  [1m[36mRental Load (0.3ms)[0m  [1m[34mSELECT "rentals".* FROM "rentals" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  ↳ app/views/rentals/index.html.erb:21
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 17)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 8.4ms | Allocations: 3198)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 72.3ms | Allocations: 16023)
+Completed 200 OK in 75ms (Views: 73.4ms | ActiveRecord: 0.3ms | Allocations: 16496)
+
+
+Started GET "/images/red-curtain.jpeg" for ::1 at 2022-04-28 20:11:19 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/images/red-curtain.jpeg"):
+  
+Started GET "/users/sign_in" for ::1 at 2022-04-28 20:11:23 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered shared/_second-header.html.erb (Duration: 1.8ms | Allocations: 722)
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 17)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1150)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 74.1ms | Allocations: 14018)
+Completed 200 OK in 77ms (Views: 75.4ms | ActiveRecord: 0.0ms | Allocations: 14664)
+
+
+Started POST "/users/sign_in" for ::1 at 2022-04-28 20:12:06 +0900
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"畑野貴洋", "password"=>"[FILTERED]"}, "commit"=>"ログイン"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["name", "畑野貴洋"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 203ms (ActiveRecord: 0.3ms | Allocations: 3514)
+
+
+Started GET "/" for ::1 at 2022-04-28 20:12:06 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/shared/_header.html.erb:23
+  Rendered shared/_header.html.erb (Duration: 7.0ms | Allocations: 2948)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 8.4ms | Allocations: 5198)
+  Rendered layout layouts/application.html.erb (Duration: 9.1ms | Allocations: 5287)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.2ms | Allocations: 5723)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"search", :controller=>"rentals"}):
+    11:   <div class='rental-contents container-fluid'>
+    12:     <% if user_signed_in? %>
+    13:       <div class="index-search"> 
+    14:         <%= form_for(@new_rental, url: {controller: 'rentals', action: 'search' }) do |f| %>
+    15:           <%= f.submit "タイトル or タグ検索", class: "search_btn" %>
+    16:         <% end %>
+    17:       </div>
+  
+app/views/rentals/index.html.erb:14
+Started GET "/" for ::1 at 2022-04-28 20:13:50 +0900
+Processing by RentalsController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/rentals_controller.rb:4:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/shared/_header.html.erb:23
+  Rendered shared/_header.html.erb (Duration: 10.1ms | Allocations: 5867)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 11.8ms | Allocations: 8122)
+  Rendered layout layouts/application.html.erb (Duration: 12.8ms | Allocations: 8216)
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 2.5ms | Allocations: 14166)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"search", :controller=>"rentals"}):
+    11:   <div class='rental-contents container-fluid'>
+    12:     <% if user_signed_in? %>
+    13:       <div class="index-search"> 
+    14:         <%= form_for(@new_rental, url: {controller: 'rentals', action: 'search' }) do |f| %>
+    15:           <%= f.submit "タイトル or タグ検索", class: "search_btn" %>
+    16:         <% end %>
+    17:       </div>
+  
+app/views/rentals/index.html.erb:14
+Started GET "/" for ::1 at 2022-04-28 20:13:53 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/shared/_header.html.erb:23
+  Rendered shared/_header.html.erb (Duration: 8.0ms | Allocations: 2770)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 9.2ms | Allocations: 4407)
+  Rendered layout layouts/application.html.erb (Duration: 10.1ms | Allocations: 4495)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.2ms | Allocations: 4929)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"search", :controller=>"rentals"}):
+    11:   <div class='rental-contents container-fluid'>
+    12:     <% if user_signed_in? %>
+    13:       <div class="index-search"> 
+    14:         <%= form_for(@new_rental, url: {controller: 'rentals', action: 'search' }) do |f| %>
+    15:           <%= f.submit "タイトル or タグ検索", class: "search_btn" %>
+    16:         <% end %>
+    17:       </div>
+  
+app/views/rentals/index.html.erb:14
+Started GET "/" for ::1 at 2022-04-28 20:14:45 +0900
+  [1m[35m (5.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/shared/_header.html.erb:23
+  Rendered shared/_header.html.erb (Duration: 389.7ms | Allocations: 331957)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 399.5ms | Allocations: 335917)
+  Rendered layout layouts/application.html.erb (Duration: 401.2ms | Allocations: 336030)
+Completed 500 Internal Server Error in 457ms (ActiveRecord: 1.4ms | Allocations: 349383)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"search", :controller=>"rentals"}):
+    11:   <div class='rental-contents container-fluid'>
+    12:     <% if user_signed_in? %>
+    13:       <div class="index-search"> 
+    14:         <%= form_for(@new_rental, url: {controller: 'rentals', action: 'search' }) do |f| %>
+    15:           <%= f.submit "タイトル or タグ検索", class: "search_btn" %>
+    16:         <% end %>
+    17:       </div>
+  
+app/views/rentals/index.html.erb:14
+Started GET "/" for ::1 at 2022-04-28 20:17:22 +0900
+Processing by RentalsController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/rentals_controller.rb:4:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/shared/_header.html.erb:23
+  Rendered shared/_header.html.erb (Duration: 12.6ms | Allocations: 5868)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 14.5ms | Allocations: 8110)
+  Rendered layout layouts/application.html.erb (Duration: 15.8ms | Allocations: 8205)
+Completed 500 Internal Server Error in 35ms (ActiveRecord: 2.7ms | Allocations: 14181)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"search", :controller=>"rentals"}):
+    11:   <div class='rental-contents container-fluid'>
+    12:     <% if user_signed_in? %>
+    13:       <div class="index-search"> 
+    14:         <%= form_for(@new_rental, url: {controller: 'rentals', action: 'search' }) do |f| %>
+    15:           <%= f.submit "タイトル or タグ検索", class: "search_btn" %>
+    16:         <% end %>
+    17:       </div>
+  
+app/views/rentals/index.html.erb:14
+Started GET "/" for ::1 at 2022-04-28 20:18:04 +0900
+  
+SyntaxError (C:/Users/ams/Desktop/Taking/app/controllers/rentals_controller.rb:2: syntax error, unexpected ':', expecting ']'
+...icate_user!, except: [ :index :search]
+...                              ^
+):
+  
+app/controllers/rentals_controller.rb:2: syntax error, unexpected ':', expecting ']'
+app/controllers/rentals_controller.rb:2: syntax error, unexpected ':', expecting ']'
+app/controllers/rentals_controller.rb:2: syntax error, unexpected ':', expecting ']'
+Started GET "/" for ::1 at 2022-04-28 20:18:25 +0900
+Processing by RentalsController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/rentals_controller.rb:4:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/shared/_header.html.erb:23
+  Rendered shared/_header.html.erb (Duration: 20.7ms | Allocations: 5868)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 23.6ms | Allocations: 8126)
+  Rendered layout layouts/application.html.erb (Duration: 24.7ms | Allocations: 8221)
+Completed 500 Internal Server Error in 42ms (ActiveRecord: 3.7ms | Allocations: 14183)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"search", :controller=>"rentals"}):
+    11:   <div class='rental-contents container-fluid'>
+    12:     <% if user_signed_in? %>
+    13:       <div class="index-search"> 
+    14:         <%= form_for(@new_rental, url: {controller: 'rentals', action: 'search' }) do |f| %>
+    15:           <%= f.submit "タイトル or タグ検索", class: "search_btn" %>
+    16:         <% end %>
+    17:       </div>
+  
+app/views/rentals/index.html.erb:14
+Started GET "/" for ::1 at 2022-04-28 20:20:45 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/shared/_header.html.erb:23
+  Rendered shared/_header.html.erb (Duration: 14.5ms | Allocations: 3614)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 18.4ms | Allocations: 5887)
+  Rendered layout layouts/application.html.erb (Duration: 21.8ms | Allocations: 5982)
+Completed 500 Internal Server Error in 37ms (ActiveRecord: 0.8ms | Allocations: 6968)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"search", :controller=>"rentals"}):
+    11:   <div class='rental-contents container-fluid'>
+    12:     <% if user_signed_in? %>
+    13:       <div class="index-search"> 
+    14:         <%= form_for(@new_rental, url: {controller: 'rentals', action: 'search' }) do |f| %>
+    15:           <%= f.submit "タイトル or タグ検索", class: "search_btn" %>
+    16:         <% end %>
+    17:       </div>
+  
+app/views/rentals/index.html.erb:14
+Started GET "/" for ::1 at 2022-04-28 20:20:46 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/shared/_header.html.erb:23
+  Rendered shared/_header.html.erb (Duration: 6.7ms | Allocations: 2770)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 9.2ms | Allocations: 4405)
+  Rendered layout layouts/application.html.erb (Duration: 9.8ms | Allocations: 4493)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.2ms | Allocations: 4925)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"search", :controller=>"rentals"}):
+    11:   <div class='rental-contents container-fluid'>
+    12:     <% if user_signed_in? %>
+    13:       <div class="index-search"> 
+    14:         <%= form_for(@new_rental, url: {controller: 'rentals', action: 'search' }) do |f| %>
+    15:           <%= f.submit "タイトル or タグ検索", class: "search_btn" %>
+    16:         <% end %>
+    17:       </div>
+  
+app/views/rentals/index.html.erb:14
+Started GET "/" for ::1 at 2022-04-28 20:20:49 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/shared/_header.html.erb:23
+  Rendered shared/_header.html.erb (Duration: 8.0ms | Allocations: 2770)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 10.3ms | Allocations: 4405)
+  Rendered layout layouts/application.html.erb (Duration: 11.0ms | Allocations: 4493)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.2ms | Allocations: 4886)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"search", :controller=>"rentals"}):
+    11:   <div class='rental-contents container-fluid'>
+    12:     <% if user_signed_in? %>
+    13:       <div class="index-search"> 
+    14:         <%= form_for(@new_rental, url: {controller: 'rentals', action: 'search' }) do |f| %>
+    15:           <%= f.submit "タイトル or タグ検索", class: "search_btn" %>
+    16:         <% end %>
+    17:       </div>
+  
+app/views/rentals/index.html.erb:14
+Started GET "/" for ::1 at 2022-04-28 20:20:53 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/shared/_header.html.erb:23
+  Rendered shared/_header.html.erb (Duration: 13.3ms | Allocations: 2776)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 14.7ms | Allocations: 4413)
+  Rendered layout layouts/application.html.erb (Duration: 16.3ms | Allocations: 4501)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.3ms | Allocations: 4894)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"search", :controller=>"rentals"}):
+    11:   <div class='rental-contents container-fluid'>
+    12:     <% if user_signed_in? %>
+    13:       <div class="index-search"> 
+    14:         <%= form_for(@new_rental, url: {controller: 'rentals', action: 'search' }) do |f| %>
+    15:           <%= f.submit "タイトル or タグ検索", class: "search_btn" %>
+    16:         <% end %>
+    17:       </div>
+  
+app/views/rentals/index.html.erb:14
+Started GET "/" for ::1 at 2022-04-28 20:21:52 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/shared/_header.html.erb:23
+  Rendered shared/_header.html.erb (Duration: 13.7ms | Allocations: 3606)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 17.9ms | Allocations: 5879)
+  Rendered layout layouts/application.html.erb (Duration: 18.8ms | Allocations: 5973)
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 0.4ms | Allocations: 6906)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"search", :controller=>"rentals"}):
+    11:   <div class='rental-contents container-fluid'>
+    12:     <% if user_signed_in? %>
+    13:       <div class="index-search"> 
+    14:         <%= form_for(@new_rental, url: {:action=>"search", :controller=>"rentals"}) do |f| %>
+    15:           <%= f.submit "タイトル or タグ検索", class: "search_btn" %>
+    16:         <% end %>
+    17:       </div>
+  
+app/views/rentals/index.html.erb:14
+Started GET "/" for ::1 at 2022-04-28 20:21:57 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/shared/_header.html.erb:23
+  Rendered shared/_header.html.erb (Duration: 10.6ms | Allocations: 2770)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 13.2ms | Allocations: 4405)
+  Rendered layout layouts/application.html.erb (Duration: 14.3ms | Allocations: 4493)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.2ms | Allocations: 4925)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"search", :controller=>"rentals"}):
+    11:   <div class='rental-contents container-fluid'>
+    12:     <% if user_signed_in? %>
+    13:       <div class="index-search"> 
+    14:         <%= form_for(@new_rental, url: {:action=>"search", :controller=>"rentals"}) do |f| %>
+    15:           <%= f.submit "タイトル or タグ検索", class: "search_btn" %>
+    16:         <% end %>
+    17:       </div>
+  
+app/views/rentals/index.html.erb:14
+Started GET "/" for ::1 at 2022-04-28 20:23:19 +0900
+Processing by RentalsController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/rentals_controller.rb:4:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/shared/_header.html.erb:23
+  Rendered shared/_header.html.erb (Duration: 21.2ms | Allocations: 6318)
+  [1m[36mRental Load (0.6ms)[0m  [1m[34mSELECT "rentals".* FROM "rentals" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  ↳ app/views/rentals/index.html.erb:21
+  Rendered shared/_footer.html.erb (Duration: 0.5ms | Allocations: 132)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 58.5ms | Allocations: 10656)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 155.3ms | Allocations: 24101)
+Completed 200 OK in 183ms (Views: 164.1ms | ActiveRecord: 3.2ms | Allocations: 30473)
+
+
+Started GET "/images/red-curtain.jpeg" for ::1 at 2022-04-28 20:23:22 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/images/red-curtain.jpeg"):
+  
+Started POST "/rentals/search" for ::1 at 2022-04-28 20:24:40 +0900
+Processing by RentalsController#search as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "commit"=>"タイトル or タグ検索"}
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.0ms | Allocations: 4135)
+
+
+  
+NameError (undefined local variable or method `movie_params' for #<RentalsController:0x000000000219d0>
+
+    @rentals = Rental.where('movie_title LIKE ?', "%#{movie_params[:tag_list]}%").order("created_at DESC")
+                                                      ^^^^^^^^^^^^):
+  
+app/controllers/rentals_controller.rb:11:in `search'
+Started GET "/images/red-curtain.jpeg" for ::1 at 2022-04-28 20:24:46 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/images/red-curtain.jpeg"):
+  
+Started GET "/" for ::1 at 2022-04-28 20:31:22 +0900
+Processing by RentalsController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/rentals_controller.rb:4:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/shared/_header.html.erb:23
+  Rendered shared/_header.html.erb (Duration: 18.2ms | Allocations: 3630)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 34.7ms | Allocations: 12657)
+  Rendered layout layouts/application.html.erb (Duration: 36.8ms | Allocations: 12751)
+Completed 500 Internal Server Error in 59ms (ActiveRecord: 1.0ms | Allocations: 14309)
+
+
+  
+ActionView::Template::Error (undefined method `tag_list' for #<Rental id: nil, reserve_schedule_date: nil, return_schedule_date: nil, return_actual_date: nil, status: nil, apply: nil, rental_confirmation: nil, return_confirmation: nil, deleted_at: nil, user_id: nil, created_at: nil, updated_at: nil>):
+    12:     <% if user_signed_in? %>
+    13:       <div class="index-search"> 
+    14:         <%= form_for(@new_rental, url: {controller: 'rentals', action: 'search' }) do |f| %>
+    15:           <%= f.text_field :tag_list %>
+    16:           <%= f.submit "貸出物 or 日付検索", class: "search_btn" %>
+    17:         <% end %>
+    18:       </div>
+  
+app/views/rentals/index.html.erb:15
+app/views/rentals/index.html.erb:14
+Started GET "/" for ::1 at 2022-04-28 20:32:09 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/shared/_header.html.erb:23
+  Rendered shared/_header.html.erb (Duration: 9.3ms | Allocations: 3605)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 20.6ms | Allocations: 12533)
+  Rendered layout layouts/application.html.erb (Duration: 21.6ms | Allocations: 12627)
+Completed 500 Internal Server Error in 36ms (ActiveRecord: 0.1ms | Allocations: 13598)
+
+
+  
+ActionView::Template::Error (undefined method `f' for #<Rental id: nil, reserve_schedule_date: nil, return_schedule_date: nil, return_actual_date: nil, status: nil, apply: nil, rental_confirmation: nil, return_confirmation: nil, deleted_at: nil, user_id: nil, created_at: nil, updated_at: nil>):
+    12:     <% if user_signed_in? %>
+    13:       <div class="index-search"> 
+    14:         <%= form_for(@new_rental, url: {controller: 'rentals', action: 'search' }) do |f| %>
+    15:           <%= f.text_field :f %>
+    16:           <%= f.submit "貸出物 or 日付検索", class: "search_btn" %>
+    17:         <% end %>
+    18:       </div>
+  
+app/views/rentals/index.html.erb:15
+app/views/rentals/index.html.erb:14
+Started GET "/" for ::1 at 2022-04-28 20:32:37 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/shared/_header.html.erb:23
+  Rendered shared/_header.html.erb (Duration: 10.3ms | Allocations: 3605)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 13.6ms | Allocations: 5355)
+  Rendered layout layouts/application.html.erb (Duration: 14.7ms | Allocations: 5449)
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 0.2ms | Allocations: 6422)
+
+
+  
+ActionView::Template::Error (wrong number of arguments (given 0, expected 1..2)):
+    12:     <% if user_signed_in? %>
+    13:       <div class="index-search"> 
+    14:         <%= form_for(@new_rental, url: {controller: 'rentals', action: 'search' }) do |f| %>
+    15:           <%= f.text_field %>
+    16:           <%= f.submit "貸出物 or 日付検索", class: "search_btn" %>
+    17:         <% end %>
+    18:       </div>
+  
+app/views/rentals/index.html.erb:15
+app/views/rentals/index.html.erb:14
+Started GET "/" for ::1 at 2022-04-28 20:34:45 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/shared/_header.html.erb:23
+  Rendered shared/_header.html.erb (Duration: 14.8ms | Allocations: 3605)
+  [1m[36mRental Load (0.6ms)[0m  [1m[34mSELECT "rentals".* FROM "rentals" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  ↳ app/views/rentals/index.html.erb:22
+  Rendered shared/_footer.html.erb (Duration: 1.1ms | Allocations: 129)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 28.1ms | Allocations: 6233)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 134.4ms | Allocations: 19430)
+Completed 200 OK in 149ms (Views: 143.4ms | ActiveRecord: 1.0ms | Allocations: 20431)
+
+
+Started GET "/images/red-curtain.jpeg" for ::1 at 2022-04-28 20:34:45 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/images/red-curtain.jpeg"):
+  
+Started GET "/" for ::1 at 2022-04-28 20:37:14 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/shared/_header.html.erb:23
+  Rendered shared/_header.html.erb (Duration: 13.2ms | Allocations: 2774)
+  [1m[36mRental Load (0.6ms)[0m  [1m[34mSELECT "rentals".* FROM "rentals" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  ↳ app/views/rentals/index.html.erb:22
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 17)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 18.6ms | Allocations: 3987)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 3105.8ms | Allocations: 77460)
+Completed 200 OK in 3112ms (Views: 3107.0ms | ActiveRecord: 0.9ms | Allocations: 77915)
+
+
+Started GET "/images/red-curtain.jpeg" for ::1 at 2022-04-28 20:37:17 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/images/red-curtain.jpeg"):
+  
+Started GET "/" for ::1 at 2022-04-28 20:37:36 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/shared/_header.html.erb:23
+  Rendered shared/_header.html.erb (Duration: 10.5ms | Allocations: 2759)
+  [1m[36mRental Load (0.5ms)[0m  [1m[34mSELECT "rentals".* FROM "rentals" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  ↳ app/views/rentals/index.html.erb:22
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 17)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 15.5ms | Allocations: 3972)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 2385.9ms | Allocations: 66904)
+Completed 200 OK in 2391ms (Views: 2386.9ms | ActiveRecord: 0.8ms | Allocations: 67322)
+
+
+Started GET "/images/red-curtain.jpeg" for ::1 at 2022-04-28 20:37:38 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/images/red-curtain.jpeg"):
+  
+Started GET "/" for ::1 at 2022-04-28 20:38:11 +0900
+Processing by RentalsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/shared/_header.html.erb:23
+  Rendered shared/_header.html.erb (Duration: 12.2ms | Allocations: 2777)
+  [1m[36mRental Load (0.3ms)[0m  [1m[34mSELECT "rentals".* FROM "rentals" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 8], ["OFFSET", 0]]
+  ↳ app/views/rentals/index.html.erb:22
+  Rendered shared/_footer.html.erb (Duration: 0.0ms | Allocations: 17)
+  Rendered rentals/index.html.erb within layouts/application (Duration: 16.2ms | Allocations: 3990)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 2313.7ms | Allocations: 66838)
+Completed 200 OK in 2319ms (Views: 2315.0ms | ActiveRecord: 0.6ms | Allocations: 67256)
+
+
+Started GET "/images/red-curtain.jpeg" for ::1 at 2022-04-28 20:38:14 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/images/red-curtain.jpeg"):
+  

@@ -1,0 +1,168 @@
+.rental-main {
+  // background-color: #486d46;            /* 背景色 */
+  background-image: image-url('red-curtain.jpeg'); /* 画像 */
+  background-size: cover;               /* 全画面 */
+  // background-attachment: fixed;         /* 固定 */
+  background-position: center center;   /* 縦横中央 */
+  padding-bottom: 10vh;
+}
+
+.pickup_title {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #3cb371;
+}
+
+.title {
+  text-align: center;
+  width: 50vw;
+  position: relative;
+  margin: 30px;
+  color: #fff;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
+  font-family: "YuGothic","Yu Gothic","Meiryo","ヒラギノ角ゴ","sans-serif";
+  height: 50px; /*リボンの高さ*/
+  line-height: 50px;  /*文字の縦位置*/
+  padding: 0 30px;  /*文字の開始位置*/
+  font-size: 30px;  /*文字サイズ*/
+}
+
+.search_btn{
+  padding: 0 10px;
+}
+
+.rental-contents.container-fluid {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 90vw;
+}
+
+.title-contents {
+  width: 100vw;
+  background-image: image-url('furima-header01.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 5vh 15vw;
+  color: #fff;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
+}
+
+.service-title {
+  font-size: 8vh;
+}
+
+.service-explain {
+  font-size: 2.5vh;
+  line-height: 40px;
+}
+
+.store-btn {
+  display: flex;
+  margin-top: 24px;
+}
+
+.apple-btn {
+  margin-right: 1vw;
+  height: 9vh;
+}
+
+.google-btn {
+  height: 9vh;
+}
+
+/* 商品一覧 */
+
+.rental-contents {
+  background-color: #FFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+  border-radius: 10px;
+}
+
+.rental-lists {
+  width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.rental-lists>.list {
+  width: 37vh;
+  padding: 1vw;
+  background-color: #FFF;
+}
+
+
+.rental-img-content {
+  position: relative;
+}
+
+.rental-img {
+  width: 220px;
+  height: 310px;
+}
+
+.rental-info {
+  height: 70px;
+  background-color: #FFF;
+  color: black;
+  padding: 10px 10px 0 10px;
+}
+
+.rental-name {
+  font-size: 2.5vh;
+}
+
+.tag-list {
+  font-size: 13px;
+  padding: 0 0 60px 1vw;
+}
+
+.tag-btn {
+  font-size: 13px;
+  position: relative;
+  display: inline-block;
+  padding: 0.25em 0.5em;
+  margin-top: 10px;
+  text-decoration: none;
+  color: #FFF;
+  background: #17b3fc;/*色*/
+  border-radius: 4px;/*角の丸み*/
+  box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.05);
+  font-weight: bold;
+  border: solid 2px #00a2ff;/*線色*/
+}
+
+.tag-btn:active {
+  /*押したとき*/
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
+}
+
+.star-btn {
+  display: flex;
+  align-items: center;
+}
+
+.star-icon {
+  height: 2vh;
+  width: 2vh;
+  margin-right: 0.5vw;
+}
+
+.star-count {
+  font-size: 2vh;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+}
