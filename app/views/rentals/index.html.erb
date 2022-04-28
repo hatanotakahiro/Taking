@@ -9,16 +9,22 @@
 
   <%# 作品一覧 %>
   <div class='rental-contents container-fluid'>
-    <% if user_signed_in? %>
-      <div class="index-search"> 
-        <%= form_for(@new_rental, url: {controller: 'rentals', action: 'search' }) do |f| %>
-          <%= f.text_field :keyword, value: @keyword %>
-          <%= f.submit "貸出物 or 日付検索", class: "search_btn" %>
-        <% end %>
+      <div class="index-search row" style="width:70vw">
+      	<div class="col">
+	        <%= form_for(@new_rental, url: {controller: 'rentals', action: 'search' }) do |f| %>
+        　　　<%= f.collection_select(:equipment, Category.all, :id, :name, {}, {class:"select-box", id:"product-category"}) %>
+	          <%= f.submit "貸出物検索", class: "search_btn" %>
+	        <% end %>
+        </div>
+      	<div class="col">
+	        <%= form_for(@new_rental, url: {controller: 'rentals', action: 'search' }) do |f| %>
+	          <%= f.text_field :keyword, value: @keyword %>
+	          <%= f.submit "日付検索", class: "search_btn" %>
+	        <% end %>
+        </div>
       </div>
-    <% end %>
-    <h5 class="subtitle">貸出リスト</h5>
     <div class="row" style="width:100%">
+    <h5 class="subtitle">貸出リスト</h5>
       <% @rentals.each do |r| %>
         <div class='rental-lists, col-3'>
 

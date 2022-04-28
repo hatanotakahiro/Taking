@@ -63,6 +63,9 @@ gem 'webpacker'
 
 gem 'sprockets', '~> 3.7.2'
 
+# equipmentのテーブル省略
+gem 'active_hash'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 

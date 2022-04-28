@@ -5,6 +5,7 @@ class CreateRentals < ActiveRecord::Migration[7.0]
       t.date :return_schedule_date, comment: '返却予定'
       t.date :return_actual_date, comment: '返却日'
       t.string :status, comment: '予約状態'
+      t.string :equipment, comment: '予約機器'
       t.boolean :apply, comment: '申請'
       t.boolean :rental_confirmation, comment: '確定'
       t.boolean :return_confirmation, comment: '返却確認'

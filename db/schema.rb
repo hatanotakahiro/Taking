@@ -29,6 +29,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_22_111419) do
     t.date "return_schedule_date"
     t.date "return_actual_date"
     t.string "status"
+    t.string "equipment"
     t.boolean "apply"
     t.boolean "rental_confirmation"
     t.boolean "return_confirmation"
