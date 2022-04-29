@@ -16,14 +16,14 @@
 
         <div class='col-6 text-center'> 
           <% unless user_signed_in? %>
-            貸し出し予約する場合はログインしてください
+            貸出申請する場合はログインしてください
           <% else %>
             <%= link_to '貸出予約', new_rental_path, class: "btn btn-primary" %>
           <% end %>
         </div> 
 
         <% if user_signed_in? %>
-          <div class='col-3 text-center text-blue'> 
+          <div class='col-3 text-center weight-bold-text'> 
             <%#= link_to user_path(current_user.id), class: "text-white" do %>
               <%= current_user.name %>
             <%# end %>

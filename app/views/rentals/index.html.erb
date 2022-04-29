@@ -11,32 +11,34 @@
   <div class='rental-contents container-fluid'>
       <div class="index-search row" style="width:70vw">
       	<div class="col">
-	        <%= form_for(@new_rental, url: {controller: 'rentals', action: 'search' }) do |f| %>
+	        <%= form_for(@search_rental, url: {controller: 'rentals', action: 'search' }) do |f| %>
         　　　<%= f.collection_select(:equipment, Category.all, :id, :name, {}, {class:"select-box", id:"equipment-category"}) %>
 	          <%= f.submit "貸出物検索", class: "search_btn" %>
 	        <% end %>
         </div>
+		<div class="col"> 
+		<%= form_for(@search_user, url: {controller: 'rentals', action: 'search' }) do |f| %>
+		  <%= f.text_field :name %>
+		  <%= f.submit "氏名検索", class: "search_btn" %>
+		<% end %>
+		</div>
       	<div class="col">
-	        <%= form_for(@new_rental, url: {controller: 'rentals', action: 'search' } ) do |f| %>
+	        <%= form_for(@search_rental, url: {controller: 'rentals', action: 'search' } ) do |f| %>
         　　　<%= f.collection_select(:status, Status.all, :id, :name, {}, {class:"select-box", id:"status-category"}) %>
 	          <%= f.submit "貸出状態検索", class: "search_btn" %>
 	        <% end %>
         </div>
       </div>
     <div class="row" style="width:100%">
-    <h5 class="subtitle">貸出リスト</h5>
+      <h5 class="subtitle">貸出リスト</h5>
       <% @rentals.each do |r| %>
         <div class='rental-lists, col-3'>
-
-          <%= link_to rental_path(r.id) do %>
-            <div class='rental-img-content, text-center'>
-              <%= image_tag r.rental_image, class: "rental-img" %>
-            </div>
-
+          <%#= link_to rental_path(r.id) do %>
             <div class='rental-info'>
-              <h4><%= r.rental_title %></h4>
+              <h4><%= r.equipment %></h4>
+              <h4><%= r.code %></h4>
             </div>
-          <% end %>
+          <%# end %>
         </div>
       <% end %>
     </div> 

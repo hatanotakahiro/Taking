@@ -5,5 +5,6 @@ class Status < ActiveHash::Base
     { id: 3, name: '貸出中' },
     { id: 4, name: '返却申請中' },
     { id: 5, name: '返却済み' },
+    { id: 6, name: '延滞注意' },
   ]
 end

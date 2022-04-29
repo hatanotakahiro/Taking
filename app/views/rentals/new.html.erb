@@ -1,67 +1,40 @@
 <div class="items-sell-contents">
   <header class="items-sell-header">
-    <%= link_to image_tag('Lending.png' , size: '200x65'), "/" %>
+    <%= link_to image_tag('Lending.png' , size: '200x70'), "/" %>
 
   </header>
   <div class="items-sell-main">
-    <h2 class="items-sell-title">商品の情報を入力</h2>
+    <h2 class="items-sell-title">貸出機器の情報を入力</h2>
     <%= form_with model: @rental, local: true do |f| %>
 
     <%= render 'shared/error_messages', model: f.object %>
 
-    <%# 作品画像 %>
-    <div class="img-upload">
-      <div class="weight-bold-text">
-        作品画像
-        <span class="indispensable">必須</span>
-      </div>
-      <div class="click-upload">
-        <p>
-          クリックしてファイルをアップロード
-        </p>
-        <%= f.file_field :rental_image, id:"item-image" %>
-      </div>
-    </div>
-    <%# /作品画像 %>
     <%# 作品名と作品詳細 %>
-    <div class="new-items">
-      <div class="weight-bold-text">
-          作品名
-        <span class="indispensable">必須</span>
-      </div>
-      <%= f.text_field :rental_title, class:"rentals-text", id:"rental-title", placeholder:"商品名（必須 50文字まで)", maxlength:"50" %>
       <div class="rental-form">
         <div class="weight-bold-text">
-          作品の説明
-          <span class="indispensable">必須</span>
+            機器の種類
+  <!--         <span class="indispensable">必須</span> -->
+          <%= f.collection_select(:equipment, Category.all, :id, :name, {}, {class:"rental-form", id:"equipment-category"}) %>
         </div>
-        <%= f.text_area :rental_text, class:"rentals-text", id:"rental-text", placeholder:"作品の説明（必須 500文字まで）", rows:"7" ,maxlength:"500" %>
       </div>
       <div class="rental-form">
         <div class="weight-bold-text">
-          動画の長さ
-          <span class="indispensable">必須</span>
+          貸出理由
+<!--           <span class="indispensable">必須</span> -->
         </div>
-        <%= f.text_field :long, class:"rentals-short-text", id:"rental-long", placeholder:"（例）120分、全13話", maxlength:"15" %>
+        <%= f.text_area :reason, class:"rentals-text", id:"rental-text", placeholder:"理由（簡潔に）", rows:"7" ,maxlength:"500" %>
       </div>
       <div class="rental-form">
         <div class="weight-bold-text">
-          制作者
-          <span class="indispensable">必須</span>
+          コード
+<!--           <span class="indispensable">必須</span> -->
         </div>
-        <%= f.text_area :producer, class:"rentals-text", id:"rental-producer", placeholder:"制作者（必須 50文字まで）", rows:"1" ,maxlength:"50" %>
+        <%= f.text_field :code, class:"rentals-text", id:"rental-text", placeholder:"コード入力", rows:"7" ,maxlength:"50" %>
       </div>
       <div class="rental-form">
         <div class="weight-bold-text">
-          演者
-          <span class="indispensable">必須</span>
-        </div>
-        <%= f.text_area :character, class:"rentals-text", id:"rental-character", placeholder:"制作者（必須 200文字まで）", rows:"2" ,maxlength:"200" %>
-      </div>
-      <div class="rental-form">
-        <div class="weight-bold-text">
-          作品の公開日
-          <span class="indispensable">必須</span>
+          貸出日（予定）
+<!--           <span class="indispensable">必須</span> -->
         </div>
         <div class='input-release-wrap'>
           <%= raw sprintf(
@@ -71,8 +44,27 @@
                         id:"release-date",
                         use_month_numbers: true,
                         prompt:'--',
-                        start_year: 1930,
-                        end_year: (Time.now.year + 5),
+                        start_year: 2021,
+                        end_year: (Time.now.year + 3),
+                        date_separator: '%s'),
+                      "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
+        </div>
+      </div>
+      <div class="rental-form">
+        <div class="weight-bold-text">
+          返却日（予定）
+<!--           <span class="indispensable">必須</span> -->
+        </div>
+        <div class='input-release-wrap'>
+          <%= raw sprintf(
+                      f.date_select(
+                        :release_date,
+                        class:'select-release',
+                        id:"release-date",
+                        use_month_numbers: true,
+                        prompt:'--',
+                        start_year: 2021,
+                        end_year: (Time.now.year + 3),
                         date_separator: '%s'),
                       "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
         </div>
@@ -80,7 +72,7 @@
     <%# /作品名と作品詳細 %>
     <%# 下部ボタン %>
     <div class="sell-btn-contents">
-      <%= f.submit "作品を追加する" ,class:"sell-btn" %>
+      <%= f.submit "貸出を申請する" ,class:"sell-btn btn btn-primary" %>
       <%=link_to 'もどる', root_path, class:"back-btn" %>
     </div>
     <%# /下部ボタン %>
