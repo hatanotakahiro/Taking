@@ -15,12 +15,40 @@ class RentalsController < ApplicationController
     @rental = Rental.new
   end
 
+  def create
+    @rental = Rental.new(rental_params)
+    if @rental.save
+      redirect_to root_path
+    else
+      render :new
+    end
+  end
+
   def show
 
   end
 
   def delete
 
+  end
+
+  private
+  def rental_params
+    params.require(:rental).permit(:equipment, :reason, :code, :reserve_schedule_date, :return_schedule_date, :status).merge(user_id: current_user.id)
+  end
+
+  def search_params
+    params.require(:rental).permit(:rental_title, :tag_list)
+  end
+
+  def set_rental
+    @rental = rental.find(params[:id])
+  end
+  
+  def admin?
+    unless current_user.admin?
+      redirect_to root_path
+    end
   end
 
 end

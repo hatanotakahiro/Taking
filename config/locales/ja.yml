@@ -1,0 +1,15 @@
+ja:
+  activerecord:
+   attributes:
+     user:
+       name: 氏名
+     rental:
+       equipment: 機器の種類
+       reason: 貸出理由
+       code: コード
+       reserve_schedule_date: 貸出予定日
+       return_schedule_date: 返却予定日
+  # activemodel:
+  #  attributes:
+  #    review_process:
+  #      review_text: 感想

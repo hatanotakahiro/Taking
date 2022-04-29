@@ -12,7 +12,7 @@
       <div class="index-search row" style="width:70vw">
       	<div class="col">
 	        <%= form_for(@search_rental, url: {controller: 'rentals', action: 'search' }) do |f| %>
-        　　　<%= f.collection_select(:equipment, Category.all, :id, :name, {}, {class:"select-box", id:"equipment-category"}) %>
+        　　　<%= f.collection_select(:equipment, Category.all, :id, :name, {prompt: '---'}, {class:"select-box", id:"equipment-category"}) %>
 	          <%= f.submit "貸出物検索", class: "search_btn" %>
 	        <% end %>
         </div>
@@ -24,7 +24,7 @@
 		</div>
       	<div class="col">
 	        <%= form_for(@search_rental, url: {controller: 'rentals', action: 'search' } ) do |f| %>
-        　　　<%= f.collection_select(:status, Status.all, :id, :name, {}, {class:"select-box", id:"status-category"}) %>
+        　　　<%= f.collection_select(:status, Status.all, :id, :name, {prompt: '---'}, {class:"select-box", id:"status-category"}) %>
 	          <%= f.submit "貸出状態検索", class: "search_btn" %>
 	        <% end %>
         </div>
