@@ -1,10 +1,10 @@
-.movie-search-contents.container-fluid {
+.rental-search-contents.container-fluid {
   margin-right: auto;
   margin-left: auto;
   max-width: 90vw;
 }
 
-.movie-search-contents {
+.rental-search-contents {
   background-color: #FFF;
   display: flex;
   flex-direction: column;
@@ -23,7 +23,7 @@
 }
 
 .search-subtitle:before {
-  font-family: "Font Awesome 5 Free";
+  font-family: "Font Awesome 6 Free";
   content: "\f002";
   display: inline-block;
   line-height: 40px;

@@ -8,11 +8,11 @@ class RentalsController < ApplicationController
 
   def search
     @rental = Rental.includes(:user).order("created_at DESC")
-    @rentals = Rental.where('movie_title LIKE ?').order("created_at DESC")
+    @rentals = Rental.where('equipment LIKE ?').order("created_at DESC") | Rental.where('status LIKE ?').order("created_at DESC")
   end
 
   def new
-
+    @rental = Rental.new
   end
 
   def show

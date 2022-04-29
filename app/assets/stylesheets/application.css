@@ -1,5 +1,7 @@
 /*
 *= ./bootstrap_import
+*= ./font-awesome-sprockets_import
+*= ./font-awesome_import
 *= require_tree .
 *= require_self
 */
