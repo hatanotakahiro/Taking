@@ -49,6 +49,9 @@ gem 'pry-rails'
 # ↓エラーメッセージの日本語化
 gem 'rails-i18n'
 
+# 検索補助
+gem 'ransack'
+
 gem 'font-awesome-sass'
 
 # ↓ページング

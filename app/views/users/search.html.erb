@@ -5,25 +5,27 @@
   <div class='rental-search-contents container-fluid'>
     <h5 class="search-subtitle">検索結果</h5>
     <div class="row" style="width:100%">
-      <% if @rentals.blank? %>
+      <% if @users.blank? %>
         <div class="no-hit-search">
           <h5>一致するデータはありませんでした</h5>
         </div>
       <% else %>
-        <% @rentals.each do |r| %>
+        <% @users.each do |u| %>
           <div class='rental-lists, col-3'>
 
               <div class='rental-info'>
-              <% case r.equipment_id %>
-                <% when 1 then %>
-                   <p>ノートPC</p>
-                <% when 2 then %>
-                   <p>モニター</p>
-                <% when 3 then %>
-                   <p>ハードディスク</p>
-                <% when 4 then %>
-                   <p>ワイヤー</p>
-          　　<% end %>
+                <% u.rentals.each do |r| %>
+                  <% case r.equipment_id %>
+                    <% when 1 then %>
+                       <p>ノートPC</p>
+                    <% when 2 then %>
+                       <p>モニター</p>
+                    <% when 3 then %>
+                       <p>ハードディスク</p>
+                    <% when 4 then %>
+                       <p>ワイヤー</p>
+              　　<% end %>
+                <% end %>
               </div>
 
 

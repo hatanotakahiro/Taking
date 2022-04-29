@@ -14,7 +14,7 @@
         <div class="weight-bold-text">
             機器の種類
   <!--         <span class="indispensable">必須</span> -->
-          <%= f.collection_select(:equipment, Category.all, :id, :name, {prompt: '---'}, {class:"rental-form", id:"equipment-category"}) %>
+          <%= f.collection_select(:equipment_id, Equipment.all, :id, :id_name, {prompt: '---'}, {class:"rental-form", id:"equipment-category"}) %>
         </div>
       </div>
       <div class="rental-form">
@@ -69,8 +69,8 @@
                       "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
         </div>
       </div>
-    <%# status隠しパラメータ %>
-    <%= f.hidden_field :status, :value => '貸出申請中' %>
+    <%# status_id隠しパラメータ %>
+    <%= f.hidden_field :status_id, :value => 1 %>
     <%# 下部ボタン %>
     <div class="sell-btn-contents">
       <%= f.submit "貸出を申請する" ,class:"sell-btn btn btn-primary" %>

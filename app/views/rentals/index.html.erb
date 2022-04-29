@@ -12,30 +12,39 @@
       <div class="index-search row" style="width:70vw">
       	<div class="col">
 	        <%= form_for(@search_rental, url: {controller: 'rentals', action: 'search' }) do |f| %>
-        　　　<%= f.collection_select(:equipment, Category.all, :id, :name, {prompt: '---'}, {class:"select-box", id:"equipment-category"}) %>
+            <%= f.collection_select(:equipment_id, Equipment.all, :id, :id_name, {prompt: '---'}, {class:"select-box", id:"equipment-category"}) %>
 	          <%= f.submit "貸出物検索", class: "search_btn" %>
 	        <% end %>
         </div>
 		<div class="col"> 
-		<%= form_for(@search_user, url: {controller: 'rentals', action: 'search' }) do |f| %>
+		<%= form_for(@search_user, url: {controller: 'users', action: 'search' }) do |f| %>
 		  <%= f.text_field :name %>
 		  <%= f.submit "氏名検索", class: "search_btn" %>
 		<% end %>
 		</div>
       	<div class="col">
 	        <%= form_for(@search_rental, url: {controller: 'rentals', action: 'search' } ) do |f| %>
-        　　　<%= f.collection_select(:status, Status.all, :id, :name, {prompt: '---'}, {class:"select-box", id:"status-category"}) %>
+        　　　<%= f.collection_select(:status_id, Status.all, :id, :id_name, {prompt: '---'}, {class:"select-box", id:"status-category"}) %>
 	          <%= f.submit "貸出状態検索", class: "search_btn" %>
 	        <% end %>
         </div>
       </div>
     <div class="row" style="width:100%">
-      <h5 class="subtitle">貸出リスト</h5>
+      <h3 class="subtitle">貸出リスト</h3>
       <% @rentals.each do |r| %>
         <div class='rental-lists, col-3'>
           <%#= link_to rental_path(r.id) do %>
             <div class='rental-info'>
-              <h4><%= r.equipment %></h4>
+              <% case r.equipment_id %>
+					  <% when 1 then %>
+					     <p>ノートPC</p>
+					  <% when 2 then %>
+					     <p>モニター</p>
+					  <% when 3 then %>
+					     <p>ハードディスク</p>
+					  <% when 4 then %>
+					     <p>ワイヤー</p>
+			  <% end %>
               <h4><%= r.code %></h4>
             </div>
           <%# end %>

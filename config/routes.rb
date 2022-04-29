@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
+  get 'users/search', to: 'users#search'
+  post 'users/search', to: 'users#search'
 
   root to: 'rentals#index'
   resources :rentals

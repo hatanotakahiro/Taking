@@ -8,7 +8,15 @@ class RentalsController < ApplicationController
   end
 
   def search
-    @rentals = Rental.where('equipment LIKE ?').order("created_at DESC") | Rental.where('status LIKE ?').order("created_at DESC") | User.where('name LIKE ?').order("created_at DESC")
+    if rental_params[:equipment_id].present?
+      @rentals = Rental.where('equipment_id LIKE ?', "%#{rental_params[:equipment_id]}%")
+    elsif rental_params[:status_id].present?
+      @rentals = Rental.where('status_id LIKE ?', "%#{rental_params[:status_id]}%")
+    elsif rental_params[:user_id].present?
+      @rentals = Rental.where('name LIKE ?', "%#{rental_params[:user_id]}%")
+    else
+      @rentals = Rental.none
+    end
   end
 
   def new
@@ -34,7 +42,7 @@ class RentalsController < ApplicationController
 
   private
   def rental_params
-    params.require(:rental).permit(:equipment, :reason, :code, :reserve_schedule_date, :return_schedule_date, :status).merge(user_id: current_user.id)
+    params.require(:rental).permit(:equipment_id, :reason, :code, :reserve_schedule_date, :return_schedule_date, :status_id).merge(user_id: current_user.id)
   end
 
   def search_params
@@ -50,5 +58,4 @@ class RentalsController < ApplicationController
       redirect_to root_path
     end
   end
-
 end
