@@ -9,32 +9,28 @@
 
     <%= render 'shared/error_messages', model: f.object %>
 
-    <%# 作品名と作品詳細 %>
+    <%# 申請内容 %>
       <div class="rental-form">
         <div class="weight-bold-text">
             機器の種類
-  <!--         <span class="indispensable">必須</span> -->
           <%= f.collection_select(:equipment_id, Equipment.all, :id, :id_name, {prompt: '---'}, {class:"rental-form", id:"equipment-category"}) %>
         </div>
       </div>
       <div class="rental-form">
         <div class="weight-bold-text">
           貸出理由
-<!--           <span class="indispensable">必須</span> -->
         </div>
         <%= f.text_area :reason, class:"rentals-text", id:"rental-text", placeholder:"理由（簡潔に）", rows:"7" ,maxlength:"500" %>
       </div>
       <div class="rental-form">
         <div class="weight-bold-text">
           コード
-<!--           <span class="indispensable">必須</span> -->
         </div>
         <%= f.text_field :code, class:"rentals-text", id:"rental-text", placeholder:"コード入力", rows:"7" ,maxlength:"50" %>
       </div>
       <div class="rental-form">
         <div class="weight-bold-text">
           貸出日（予定）
-<!--           <span class="indispensable">必須</span> -->
         </div>
         <div class='input-release-wrap'>
           <%= raw sprintf(
@@ -53,7 +49,6 @@
       <div class="rental-form">
         <div class="weight-bold-text">
           返却日（予定）
-<!--           <span class="indispensable">必須</span> -->
         </div>
         <div class='input-release-wrap'>
           <%= raw sprintf(
@@ -69,7 +64,7 @@
                       "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
         </div>
       </div>
-    <%# status_id隠しパラメータ %>
+    <%# 隠しパラメータ %>
     <%= f.hidden_field :status_id, :value => 1 %>
     <%# 下部ボタン %>
     <div class="sell-btn-contents">

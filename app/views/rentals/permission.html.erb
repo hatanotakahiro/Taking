@@ -1,0 +1,89 @@
+<%= render "shared/header" %>
+  <div class="container">
+    <div class="row">
+      <h3 class="subtitle">本当に許可しますか？</h3>
+        <table border="2" style="border-collapse: collapse; border-color: blue">
+          <thead>
+          <tr>
+            <th>貸出機器</th>
+            <th>コード</th>
+            <th>貸出人氏名</th>
+            <th>貸出予定日</th>
+            <th>貸出日</th>
+            <th>返却予定日</th>
+            <th>返却日</th>
+            <th>ステータス</th>
+          </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <% case @rental.equipment_id %>
+                <% when 1 then %>
+                   <p>ノートPC</p>
+                <% when 2 then %>
+                   <p>モニター</p>
+                <% when 3 then %>
+                   <p>ハードディスク</p>
+                <% when 4 then %>
+                   <p>ワイヤー</p>
+                    <% end %>
+              </td>
+              <td>
+                <h4><%= @rental.code %></h4>
+              </td>
+              <td>
+                <h4><%= @rental.rental_user %></h4>
+              </td>
+              <td>
+                <h4><%= @rental.reserve_schedule_date %></h4>
+              </td>
+              <td>
+                <h4><%= @rental.reserve_actual_date %></h4>
+              </td>
+              <td>
+                <h4><%= @rental.return_schedule_date %></h4>
+              </td>
+              <td>
+                <h4><%= @rental.return_actual_date %></h4>
+              </td>
+              <td>
+                <% case @rental.status_id %>
+                <% when 1 then %>
+                   <p>貸出申請中</p>
+                <% when 2 then %>
+                   <p>貸出中</p>
+                <% when 3 then %>
+                   <p>返却申請中</p>
+                <% when 4 then %>
+                   <p>返却済み</p>
+                <% when 5 then %>
+                   <p>取消申請中</p>
+                <% when 6 then %>
+                   <p>取消済み</p>
+                <% when 7 then %>
+                   <p>延滞注意</p>
+                <% end %>
+              </td>
+            </tr>
+          <tbody>
+        </table>
+    </div>
+    <% if current_user.admin? %>
+      <div class="row text-center" style="padding: 50px;">
+        <div class="col">
+        <!-- 許可 -->
+        <%= form_for(@rental, url: {controller: 'rentals', action: 'update' } ) do |f| %>
+          <%= f.hidden_field :id, :value => @rental.id %>
+          <%= f.hidden_field :permission, :value => true %>
+          <%= f.submit "許可", class: "btn btn-success" %>
+        <% end %>
+        </div>
+        <div class="col">
+        <!-- 戻る -->
+          <%=link_to 'もどる', root_path, class:"btn btn-secondary" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<%= render "shared/footer" %>
