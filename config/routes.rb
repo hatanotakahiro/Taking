@@ -15,7 +15,5 @@ Rails.application.routes.draw do
   post 'rentals/no_permission', to: 'rentals#no_permission'
 
   post 'rentals/update', to: 'rentals#update'
-  # post 'rentals/true_permission', to: 'rentals#true_permission'
-  # post 'rentals/false_permission', to: 'rentals#false_permission'
 
   end

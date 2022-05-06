@@ -16,7 +16,3 @@ ja:
        code: コード
        reserve_schedule_date: 貸出予定日
        return_schedule_date: 返却予定日
-  # activemodel:
-  #  attributes:
-  #    review_process:
-  #      review_text: 感想

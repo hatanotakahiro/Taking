@@ -1,7 +1,7 @@
 <%= render "shared/header" %>
   <div class="container">
     <div class="row">
-      <h3 class="subtitle">本当に許可しますか？</h3>
+      <h3 class="subtitle">本当に進めて良いですか？</h3>
         <table border="2" style="border-collapse: collapse; border-color: blue">
           <thead>
           <tr>
@@ -69,21 +69,44 @@
           <tbody>
         </table>
     </div>
-    <% if current_user.admin? %>
-      <div class="row text-center" style="padding: 50px;">
-        <div class="col">
-        <!-- 許可 -->
-        <%= form_for(@rental, url: {controller: 'rentals', action: 'update' } ) do |f| %>
-          <%= f.hidden_field :id, :value => @rental.id %>
-          <%= f.hidden_field :permission, :value => true %>
-          <%= f.submit "許可", class: "btn btn-success" %>
+    <div class="row text-center" style="padding: 50px;">
+      <div class="col">
+        <% if @rental.status_id == 1 && !current_user.admin? %>
+          <%= form_for(@rental, url: {controller: 'rentals', action: 'update' } ) do |f| %>
+            <%= f.hidden_field :id, :value => @rental.id %>
+            <%= f.submit "貸出申請取消", class: "btn btn-warning" %>
+          <% end %>
+        <% elsif @rental.status_id == 1 %>
+          <!-- 許可 -->
+          <%= form_for(@rental, url: {controller: 'rentals', action: 'update' } ) do |f| %>
+            <%= f.hidden_field :id, :value => @rental.id %>
+            <%= f.hidden_field :permission, :value => true %>
+            <%= f.submit "許可", class: "btn btn-success" %>
+          <% end %>
+        <% elsif @rental.status_id == 2 %>
+          <%= form_for(@rental, url: {controller: 'rentals', action: 'update' } ) do |f| %>
+            <%= f.hidden_field :id, :value => @rental.id %>
+            <%= f.hidden_field :permission, :value => true %>
+            <%= f.submit "返却申請", class: "btn btn-primary" %>
+          <% end %>
+        <% elsif @rental.status_id == 3 %>
+          <%= form_for(@rental, url: {controller: 'rentals', action: 'update' } ) do |f| %>
+            <%= f.hidden_field :id, :value => @rental.id %>
+            <%= f.hidden_field :permission, :value => true %>
+            <%= f.submit "返却確認", class: "btn btn-info" %>
+          <% end %>
+        <% elsif @rental.status_id == 5 %>
+          <%= form_for(@rental, url: {controller: 'rentals', action: 'update' } ) do |f| %>
+            <%= f.hidden_field :id, :value => @rental.id %>
+            <%= f.hidden_field :permission, :value => true %>
+            <%= f.submit "取消確認", class: "btn btn-warning" %>
+          <% end %>
         <% end %>
-        </div>
-        <div class="col">
-        <!-- 戻る -->
-          <%=link_to 'もどる', root_path, class:"btn btn-secondary" %>
-        </div>
       </div>
-    <% end %>
+      <div class="col">
+      <!-- 戻る -->
+        <%=link_to 'もどる', root_path, class:"btn btn-secondary" %>
+      </div>
+    </div>
   </div>
 <%= render "shared/footer" %>

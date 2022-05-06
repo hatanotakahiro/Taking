@@ -10,11 +10,25 @@
           <h5>一致するデータはありませんでした</h5>
         </div>
       <% else %>
-        <% @rentals.each do |r| %>
-          <div class='rental-lists, col-3'>
-
-              <div class='rental-info'>
-              <% case r.equipment_id %>
+      <h3 class="subtitle">貸出リスト</h3>
+        <table border="2" style="border-collapse: collapse; border-color: blue">
+          <thead>
+          <tr>
+            <th>貸出機器</th>
+            <th>コード</th>
+            <th>貸出人氏名</th>
+            <th>貸出予定日</th>
+            <th>貸出許可日</th>
+            <th>返却予定日</th>
+            <th>返却確認日</th>
+            <th>ステータス</th>
+          </tr>
+          </thead>
+          <tbody>
+                  <% @rentals.each do |r| %>
+            <tr>
+              <td>
+                <% case r.equipment_id %>
                 <% when 1 then %>
                    <p>ノートPC</p>
                 <% when 2 then %>
@@ -23,12 +37,78 @@
                    <p>ハードディスク</p>
                 <% when 4 then %>
                    <p>ワイヤー</p>
-          　　<% end %>
-              </div>
-
-
-          </div>
-        <% end %>
+                    <% end %>
+              </td>
+              <td>
+                          <h4><%= r.code %></h4>
+              </td>
+              <td>
+                          <h4><%= r.rental_user %></h4>
+              </td>
+              <td>
+                          <h4><%= r.reserve_schedule_date %></h4>
+                </td>
+              <td>
+                          <h4><%= r.reserve_actual_date %></h4>
+                </td>
+              <td>
+                          <h4><%= r.return_schedule_date %></h4>
+                </td>
+              <td>
+                          <h4><%= r.return_actual_date %></h4>
+                </td>
+              <td>
+                <% case r.status_id %>
+                <% when 1 then %>
+                    <p>貸出申請中</p>
+                    <% if current_user.admin? %>
+                      <div class="row">
+                        <div class="col">
+                        <!-- 許可 -->
+                        <%= form_for(@status, url: {controller: 'rentals', action: 'permission' } ) do |f| %>
+                      <%= f.hidden_field :id, :value => r.id %>
+                      <%= f.hidden_field :status_id, :value => r.status_id %>
+                          <%= f.submit "許可", class: "btn btn-success" %>
+                        <% end %>
+                        </div>
+                        <div class="col">
+                        <!-- 不許可 -->
+                        <%= form_for(@status, url: {controller: 'rentals', action: 'no_permission' } ) do |f| %>
+                      <%= f.hidden_field :id, :value => r.id %>
+                      <%= f.hidden_field :status_id, :value => r.status_id %>
+                          <%= f.submit "不許可", class: "btn btn-danger" %>
+                        <% end %>
+                        </div>
+                      </div>
+                    <% end %>
+                <% when 2 then %>
+                   <p>貸出中</p>
+                <% when 3 then %>
+                   <p>返却申請中</p>
+                    <% if current_user.admin? %>
+                      <div class="row">
+                        <!-- 確認 -->
+                        <%= form_for(@status, url: {controller: 'rentals', action: 'permission' } ) do |f| %>
+                          <%= f.hidden_field :id, :value => r.id %>
+                          <%= f.hidden_field :status_id, :value => r.status_id %>
+                          <%= f.submit "確認", class: "btn btn-info" %>
+                        <% end %>
+                      </div>
+                    <% end %>
+                <% when 4 then %>
+                   <p>返却済み</p>
+                <% when 5 then %>
+                   <p>取消申請中</p>
+                <% when 6 then %>
+                   <p style="color: gray;">取消済み</p>
+                <% when 7 then %>
+                   <p style="color: red;">延滞注意</p>
+                    <% end %>
+                </td>
+            </tr>
+              <% end %>
+            <tbody>
+        </table>
       <% end %>
     </div> 
   </div>

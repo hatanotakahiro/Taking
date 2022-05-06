@@ -2,7 +2,7 @@ class RentalsController < ApplicationController
   before_action :authenticate_user!
   def index
       rentals = Rental.includes(:user).order("created_at DESC")
-      @rentals = rentals.page(params[:page]).per(8)
+      @rentals = rentals.page(params[:page]).per(10)
       @search_rental = Rental.new
       @status = Rental.new
   end
@@ -17,6 +17,7 @@ class RentalsController < ApplicationController
     else
       @rentals = Rental.none
     end
+    @status = Rental.new
   end
 
   def permission
@@ -38,6 +39,28 @@ class RentalsController < ApplicationController
         render :permission
       end
     elsif @rental.status_id == 1
+      @rental.status_id = 5
+      if @rental.update(rental_params)
+        redirect_to root_path
+      else
+        render :permission
+      end
+    elsif @rental.status_id == 2 && rental_params[:permission]
+      @rental.status_id = 3
+      if @rental.update(rental_params)
+        redirect_to root_path
+      else
+        render :permission
+      end
+    elsif @rental.status_id == 3 && rental_params[:permission]
+      @rental.status_id = 4
+      @rental.return_actual_date = Date.today
+      if @rental.update(rental_params)
+        redirect_to root_path
+      else
+        render :permission
+      end
+    else
       @rental.status_id = 6
       if @rental.update(rental_params)
         redirect_to root_path
