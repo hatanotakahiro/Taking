@@ -9,11 +9,11 @@ class RentalsController < ApplicationController
 
   def search
     if rental_params[:equipment_id].present?
-      @rentals = Rental.where('equipment_id LIKE ?', "%#{rental_params[:equipment_id]}%")
+      @rentals = Rental.where('equipment_id LIKE ?', "%#{rental_params[:equipment_id]}%").order("created_at DESC")
     elsif rental_params[:status_id].present?
-      @rentals = Rental.where('status_id LIKE ?', "%#{rental_params[:status_id]}%")
+      @rentals = Rental.where('status_id LIKE ?', "%#{rental_params[:status_id]}%").order("created_at DESC")
     elsif rental_params[:rental_user].present?
-      @rentals = Rental.where('rental_user LIKE ?', "%#{rental_params[:rental_user]}%")
+      @rentals = Rental.where('rental_user LIKE ?', "%#{rental_params[:rental_user]}%").order("created_at DESC")
     else
       @rentals = Rental.none
     end
@@ -38,7 +38,7 @@ class RentalsController < ApplicationController
       else
         render :permission
       end
-    elsif @rental.status_id == 1
+    elsif @rental.status_id == 1 && rental_params[:confirmation]
       @rental.status_id = 5
       if @rental.update(rental_params)
         redirect_to root_path
@@ -94,7 +94,7 @@ class RentalsController < ApplicationController
 
   private
   def rental_params
-    params.require(:rental).permit(:id, :equipment_id, :reason, :code, :reserve_schedule_date, :return_schedule_date, :status_id, :rental_user, :permission).merge(user_id: current_user.id)
+    params.require(:rental).permit(:id, :equipment_id, :reason, :code, :reserve_schedule_date, :return_schedule_date, :status_id, :rental_user, :permission, :confirmation).merge(user_id: current_user.id)
   end
 
   def set_rental

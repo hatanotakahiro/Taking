@@ -36,7 +36,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_22_111419) do
     t.string "rental_user"
     t.string "reason"
     t.boolean "permission"
-    t.boolean "return_confirmation"
+    t.boolean "confirmation"
     t.date "deleted_at"
     t.integer "user_id"
     t.datetime "created_at", null: false

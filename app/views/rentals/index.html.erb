@@ -100,7 +100,7 @@
 						      <% end %>
 						    </div>
 						  </div>
-						  <% elsif r.user_id == current_user.id %>
+						  <% elsif r.rental_user == current_user.name %>
 						  <div class="row">
 						    <!-- 貸出申請取消 -->
 						    <%= form_for(@status, url: {controller: 'rentals', action: 'permission' } ) do |f| %>
@@ -112,7 +112,7 @@
 						  <% end %>
 					  <% when 2 then %>
 					     <p>貸出中</p>
-	                    <% if r.user_id == current_user.id %>
+	                    <% if r.rental_user == current_user.name %>
 	                      <div class="row">
 	                        <!-- 確認 -->
 	                        <%= form_for(@status, url: {controller: 'rentals', action: 'permission' } ) do |f| %>

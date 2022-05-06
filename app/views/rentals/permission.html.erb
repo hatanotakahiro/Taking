@@ -74,6 +74,7 @@
         <% if @rental.status_id == 1 && !current_user.admin? %>
           <%= form_for(@rental, url: {controller: 'rentals', action: 'update' } ) do |f| %>
             <%= f.hidden_field :id, :value => @rental.id %>
+            <%= f.hidden_field :confirmation, :value => true %>
             <%= f.submit "貸出申請取消", class: "btn btn-warning" %>
           <% end %>
         <% elsif @rental.status_id == 1 %>

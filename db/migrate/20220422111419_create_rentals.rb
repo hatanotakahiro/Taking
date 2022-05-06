@@ -12,7 +12,7 @@ class CreateRentals < ActiveRecord::Migration[7.0]
       t.string :rental_user, comment: '貸出人氏名'
       t.string :reason, comment: '貸出理由'
       t.boolean :permission, comment: '許可or不許可'
-      t.boolean :return_confirmation, comment: '返却確認'
+      t.boolean :confirmation, comment: '確認'
       t.date   :deleted_at
       t.references :user, foreign_key: true
 
