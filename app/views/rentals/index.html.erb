@@ -9,155 +9,163 @@
 
   <%# 作品一覧 %>
   <div class='rental-contents container-fluid'>
-      <div class="index-search row" style="width:70vw">
+      <div class="index-search row" style="width:80vw">
       	<div class="col">
 	        <%= form_for(@search_rental, url: {controller: 'rentals', action: 'search' }) do |f| %>
             <%= f.collection_select(:equipment_id, Equipment.all, :id, :id_name, {prompt: '---'}, {class:"select-box", id:"equipment-category"}) %>
 	          <%= f.submit "貸出物検索", class: "search_btn" %>
 	        <% end %>
         </div>
-		<div class="col">
-		<%= form_for(@search_rental, url: {controller: 'rentals', action: 'search' }) do |f| %>
-		  <%= f.text_field :rental_user, placeholder:"部分一致" %>
-		  <%= f.submit "氏名検索", class: "search_btn" %>
-		<% end %>
-		</div>
+				<div class="col">
+					<%= form_for(@search_rental, url: {controller: 'rentals', action: 'search' }) do |f| %>
+					  <%= f.text_field :code, placeholder:"型番入力" %>
+					  <%= f.submit "型番検索", class: "search_btn" %>
+					<% end %>
+				</div>
+				<div class="col">
+					<%= form_for(@search_rental, url: {controller: 'rentals', action: 'search' }) do |f| %>
+					  <%= f.text_field :rental_user, placeholder:"氏名入力" %>
+					  <%= f.submit "氏名検索", class: "search_btn" %>
+					<% end %>
+				</div>
       	<div class="col">
 	        <%= form_for(@search_rental, url: {controller: 'rentals', action: 'search' } ) do |f| %>
-        　　　<%= f.collection_select(:status_id, Status.all, :id, :id_name, {prompt: '---'}, {class:"select-box", id:"status-category"}) %>
-	          <%= f.submit "貸出状態検索", class: "search_btn" %>
+        　　<%= f.collection_select(:status_id, Status.all, :id, :id_name, {prompt: '---'}, {class:"select-box", id:"status-category"}) %>
+	          <%= f.submit "ステータス検索", class: "search_btn", style: "text-size: 10px" %>
 	        <% end %>
         </div>
       </div>
     <div class="row" style="width:100%">
       <h3 class="subtitle">貸出リスト</h3>
-		<table border="2" style="border-collapse: collapse; border-color: blue">
-		  <thead>
-			<tr>
-				<th>貸出機器</th>
-				<th>型番</th>
-				<th>貸出人氏名</th>
-				<th>貸出予定日</th>
-				<th>貸出許可日</th>
-				<th>返却予定日</th>
-				<th>返却確認日</th>
-				<th>ステータス</th>
-			</tr>
-		  </thead>
-		  <tbody>
-              <% @rentals.each do |r| %>
+			<table border="2" style="border-collapse: collapse; border-color: blue">
+			  <thead>
 				<tr>
-					<td>
-					  <% case r.equipment_id %>
-					  <% when 1 then %>
-					     <p>ノートPC</p>
-					  <% when 2 then %>
-					     <p>モニター</p>
-					  <% when 3 then %>
-					     <p>ハードディスク</p>
-					  <% when 4 then %>
-					     <p>ワイヤー</p>
-			          <% end %>
-					</td>
-					<td>
-                      <h4><%= r.code %></h4>
-					</td>
-					<td>
-                      <h4><%= r.rental_user %></h4>
-					</td>
-					<td>
-                      <h4><%= r.reserve_schedule_date %></h4>
-				    </td>
-					<td>
-                      <h4><%= r.reserve_actual_date %></h4>
-				    </td>
-					<td>
-                      <h4><%= r.return_schedule_date %></h4>
-				    </td>
-					<td>
-                      <h4><%= r.return_actual_date %></h4>
-				    </td>
-					<td>
-					  <% case r.status_id %>
-					  <% when 1 then %>
-						<p>貸出申請中</p>
-						<% if current_user.admin? %>
-						  <div class="row">
-						    <div class="col">
-						      <!-- 許可 -->
-						      <%= form_for(@status, url: {controller: 'rentals', action: 'permission' } ) do |f| %>
-								<%= f.hidden_field :id, :value => r.id %>
-								<%= f.hidden_field :status_id, :value => r.status_id %>
-						        <%= f.submit "許可", class: "btn btn-success" %>
-						      <% end %>
-						    </div>
-						    <div class="col">
-						      <!-- 却下 -->
-						      <%= form_for(@status, url: {controller: 'rentals', action: 'no_permission' } ) do |f| %>
-								<%= f.hidden_field :id, :value => r.id %>
-								<%= f.hidden_field :status_id, :value => r.status_id %>
-						        <%= f.submit "却下", class: "btn btn-danger" %>
-						      <% end %>
-						    </div>
-						  </div>
-						  <% elsif r.rental_user == current_user.name %>
-						  <div class="row">
-						    <!-- 貸出申請取消 -->
-						    <%= form_for(@status, url: {controller: 'rentals', action: 'permission' } ) do |f| %>
-						      <%= f.hidden_field :id, :value => r.id %>
-						      <%= f.hidden_field :status_id, :value => r.status_id %>
-						      <%= f.submit "貸出申請取消", class: "btn btn-warning" %>
-						    <% end %>
-						  </div>
-						  <% end %>
-					  <% when 2 then %>
-					     <p>貸出中</p>
-	                    <% if r.rental_user == current_user.name %>
-	                      <div class="row">
-	                        <!-- 確認 -->
-	                        <%= form_for(@status, url: {controller: 'rentals', action: 'permission' } ) do |f| %>
-	                          <%= f.hidden_field :id, :value => r.id %>
-	                          <%= f.hidden_field :status_id, :value => r.status_id %>
-	                          <%= f.submit "返却確認申請", class: "btn btn-primary" %>
-	                        <% end %>
-	                      </div>
-	                    <% end %>
-					  <% when 3 then %>
-					    <p>返却申請中</p>
-	                    <% if current_user.admin? %>
-	                      <div class="row">
-	                        <!-- 確認 -->
-	                        <%= form_for(@status, url: {controller: 'rentals', action: 'permission' } ) do |f| %>
-	                          <%= f.hidden_field :id, :value => r.id %>
-	                          <%= f.hidden_field :status_id, :value => r.status_id %>
-	                          <%= f.submit "返却確認", class: "btn btn-info" %>
-	                        <% end %>
-	                      </div>
-	                    <% end %>
-					  <% when 4 then %>
-					     <p>返却済み</p>
-					  <% when 5 then %>
-					     <p>取消申請中</p>
-	                    <% if current_user.admin? %>
-	                      <div class="row">
-	                        <!-- 確認 -->
-	                        <%= form_for(@status, url: {controller: 'rentals', action: 'permission' } ) do |f| %>
-	                          <%= f.hidden_field :id, :value => r.id %>
-	                          <%= f.hidden_field :status_id, :value => r.status_id %>
-	                          <%= f.submit "取消確認", class: "btn btn-warning" %>
-	                        <% end %>
-	                      </div>
-	                    <% end %>
-					  <% when 6 then %>
-					     <p style="color: gray;">取消済み</p>
-					  <% when 7 then %>
-					     <p style="color: red;">延滞注意</p">
-			          <% end %>
-				    </td>
+					<th>貸出機器</th>
+					<th>型番</th>
+					<th>貸出人氏名</th>
+					<th>貸出予定日</th>
+					<th>貸出許可日</th>
+					<th>返却予定日</th>
+					<th>返却確認日</th>
+					<th>ステータス</th>
 				</tr>
-		      <% end %>
-		    <tbody>
-		</table>
+			  </thead>
+			  <tbody>
+	              <% @rentals.each do |r| %>
+					<tr>
+						<td>
+						  <% case r.equipment_id %>
+						  <% when 1 then %>
+						     <p>ノートPC</p>
+						  <% when 2 then %>
+						     <p>モニター</p>
+						  <% when 3 then %>
+						     <p>ハードディスク</p>
+						  <% when 4 then %>
+						     <p>ワイヤー</p>
+				          <% end %>
+						</td>
+						<td>
+	                      <h4><%= r.code %></h4>
+						</td>
+						<td>
+	                      <h4><%= r.rental_user %></h4>
+						</td>
+						<td>
+	                      <h4><%= r.reserve_schedule_date %></h4>
+					    </td>
+						<td>
+	                      <h4><%= r.reserve_actual_date %></h4>
+					    </td>
+						<td>
+	                      <h4><%= r.return_schedule_date %></h4>
+					    </td>
+						<td>
+	                      <h4><%= r.return_actual_date %></h4>
+					    </td>
+						<td>
+						  <% case r.status_id %>
+						  <% when 1 then %>
+							<p>貸出申請中</p>
+							<% if current_user.admin? %>
+							  <div class="row">
+							    <div class="col">
+							      <!-- 許可 -->
+							      <%= form_for(@status, url: {controller: 'rentals', action: 'permission' } ) do |f| %>
+									<%= f.hidden_field :id, :value => r.id %>
+									<%= f.hidden_field :status_id, :value => r.status_id %>
+							        <%= f.submit "許可", class: "btn btn-success" %>
+							      <% end %>
+							    </div>
+							    <div class="col">
+							      <!-- 却下 -->
+							      <%= form_for(@status, url: {controller: 'rentals', action: 'no_permission' } ) do |f| %>
+									<%= f.hidden_field :id, :value => r.id %>
+									<%= f.hidden_field :status_id, :value => r.status_id %>
+							        <%= f.submit "却下", class: "btn btn-danger" %>
+							      <% end %>
+							    </div>
+							  </div>
+							  <% elsif r.rental_user == current_user.name %>
+							  <div class="row">
+							    <!-- 貸出申請取消 -->
+							    <%= form_for(@status, url: {controller: 'rentals', action: 'permission' } ) do |f| %>
+							      <%= f.hidden_field :id, :value => r.id %>
+							      <%= f.hidden_field :status_id, :value => r.status_id %>
+							      <%= f.submit "貸出申請取消", class: "btn btn-warning" %>
+							    <% end %>
+							  </div>
+							  <% end %>
+						  <% when 2 then %>
+						     <p>貸出中</p>
+		                    <% if r.rental_user == current_user.name %>
+		                      <div class="row">
+		                        <!-- 確認 -->
+		                        <%= form_for(@status, url: {controller: 'rentals', action: 'permission' } ) do |f| %>
+		                          <%= f.hidden_field :id, :value => r.id %>
+		                          <%= f.hidden_field :status_id, :value => r.status_id %>
+		                          <%= f.submit "返却確認申請", class: "btn btn-primary" %>
+		                        <% end %>
+		                      </div>
+		                    <% end %>
+						  <% when 3 then %>
+						    <p>返却申請中</p>
+		                    <% if current_user.admin? %>
+		                      <div class="row">
+		                        <!-- 確認 -->
+		                        <%= form_for(@status, url: {controller: 'rentals', action: 'permission' } ) do |f| %>
+		                          <%= f.hidden_field :id, :value => r.id %>
+		                          <%= f.hidden_field :status_id, :value => r.status_id %>
+		                          <%= f.submit "返却確認", class: "btn btn-info" %>
+		                        <% end %>
+		                      </div>
+		                    <% end %>
+						  <% when 4 then %>
+						     <p>返却済み</p>
+						  <% when 5 then %>
+						     <p>取消申請中</p>
+		                    <% if current_user.admin? %>
+		                      <div class="row">
+		                        <!-- 確認 -->
+		                        <%= form_for(@status, url: {controller: 'rentals', action: 'permission' } ) do |f| %>
+		                          <%= f.hidden_field :id, :value => r.id %>
+		                          <%= f.hidden_field :status_id, :value => r.status_id %>
+		                          <%= f.submit "取消確認", class: "btn btn-warning" %>
+		                        <% end %>
+		                      </div>
+		                    <% end %>
+						  <% when 6 then %>
+						     <p style="color: gray;">取消済み</p>
+						  <% when 7 then %>
+						     <p style="color: red;">延滞注意</p>
+						  <% when 8 then %>
+						     <p style="color: gray;">貸出却下</p>
+				          <% end %>
+					    </td>
+					</tr>
+			      <% end %>
+			    <tbody>
+			</table>
     </div> 
     <%= paginate @rentals %>
   </div>

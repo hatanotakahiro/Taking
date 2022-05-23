@@ -14,21 +14,21 @@
     <div class='nav, col'>
       <div class='lists-left, row align-items-center justify-content-center'>
         <% unless current_user.admin? %>
-          <div class='col-6 text-center'>
+          <div class='col text-center'>
               <%= link_to '貸出予約', new_rental_path, class: "btn btn-primary" %>
           </div>
         <% end %>
         <% if user_signed_in? %>
-          <div class='col-3 text-center weight-bold-text'>
+          <div class='col text-center weight-bold-text'>
             <%#= link_to user_path(current_user.id), class: "text-white" do %>
               <%= current_user.name %>
             <%# end %>
           </div>
-          <div class='col-3 text-center'>
+          <div class='col text-center'>
             <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %>
           </div>
         <% else %>
-          <div class='col-3 text-center'>
+          <div class='col text-center'>
             <%= link_to 'ログイン', new_user_session_path, class: "login" %>
           </div>
         <% end %>

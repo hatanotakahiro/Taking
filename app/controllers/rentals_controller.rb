@@ -14,6 +14,8 @@ class RentalsController < ApplicationController
       @rentals = Rental.where('status_id LIKE ?', "%#{rental_params[:status_id]}%").order("created_at DESC")
     elsif rental_params[:rental_user].present?
       @rentals = Rental.where('rental_user LIKE ?', "%#{rental_params[:rental_user]}%").order("created_at DESC")
+    elsif rental_params[:code].present?
+      @rentals = Rental.where('code LIKE ?', "%#{rental_params[:code]}%").order("created_at DESC")
     else
       @rentals = Rental.none
     end
@@ -62,13 +64,21 @@ class RentalsController < ApplicationController
       else
         render :permission
       end
-    else
+    elsif @rental.status_id == 5 && rental_params[:permission]
       @rental.status_id = 6
       @rental.lending = "取消済み"
       if @rental.update(rental_params)
         redirect_to root_path
       else
         render :permission
+      end
+    else
+      @rental.status_id = 8
+      @rental.lending = "貸出却下"
+      if @rental.update(rental_params)
+        redirect_to root_path
+      else
+        render :no_permission
       end
     end
   end

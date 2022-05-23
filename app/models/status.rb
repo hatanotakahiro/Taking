@@ -6,6 +6,7 @@ class Status < ActiveHash::Base
     { id: 4, id_name: '返却済み' },
     { id: 5, id_name: '取消申請中' },
     { id: 6, id_name: '取消済み' },
-    { id: 7, id_name: '延滞注意' }
+    { id: 7, id_name: '延滞注意' },
+    { id: 8, id_name: '貸出却下' }
   ]
 end
