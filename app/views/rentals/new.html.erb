@@ -24,13 +24,13 @@
       </div>
       <div class="rental-form">
         <div class="weight-bold-text">
-          コード
+          型番
         </div>
-        <%= f.text_field :code, class:"rentals-text", id:"rental-text", placeholder:"コード入力", rows:"7" ,maxlength:"50" %>
+        <%= f.text_field :code, class:"rentals-text", id:"rental-text", placeholder:"型番入力", rows:"7" ,maxlength:"50" %>
       </div>
       <div class="rental-form">
         <div class="weight-bold-text">
-          貸出日（予定）
+          貸出日（予定） (本日の日付：<%= Date.today %>)
         </div>
         <div class='input-release-wrap'>
           <%= raw sprintf(
@@ -66,6 +66,8 @@
       </div>
     <%# 隠しパラメータ %>
     <%= f.hidden_field :status_id, :value => 1 %>
+    <%#= f.hidden_field :reserving, :value => "貸出申請中" %>
+    <%= f.hidden_field :lending, :value => "貸出中" %>
     <%# 下部ボタン %>
     <div class="sell-btn-contents">
       <%= f.submit "貸出を申請する" ,class:"sell-btn btn btn-primary" %>

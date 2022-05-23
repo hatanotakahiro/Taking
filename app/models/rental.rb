@@ -15,4 +15,10 @@ class Rental < ApplicationRecord
     validates :reserve_schedule_date
     validates :return_schedule_date
   end
+
+  validates :equipment_id, uniqueness: { scope: [:code, :lending], message: 'は貸出申請中または貸出中です。'  }, if: :lending?
+  
+  def lending?
+    lending == "貸出中"
+  end
 end

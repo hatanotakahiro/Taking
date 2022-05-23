@@ -32,6 +32,7 @@ class RentalsController < ApplicationController
     @rental = Rental.find(rental_params[:id])
     if @rental.status_id == 1 && rental_params[:permission]
       @rental.status_id = 2
+      @rental.lending = "貸出中"
       @rental.reserve_actual_date = Date.today
       if @rental.update(rental_params)
         redirect_to root_path
@@ -54,6 +55,7 @@ class RentalsController < ApplicationController
       end
     elsif @rental.status_id == 3 && rental_params[:permission]
       @rental.status_id = 4
+      @rental.lending = "返却済み"
       @rental.return_actual_date = Date.today
       if @rental.update(rental_params)
         redirect_to root_path
@@ -62,6 +64,7 @@ class RentalsController < ApplicationController
       end
     else
       @rental.status_id = 6
+      @rental.lending = "取消済み"
       if @rental.update(rental_params)
         redirect_to root_path
       else
@@ -94,7 +97,7 @@ class RentalsController < ApplicationController
 
   private
   def rental_params
-    params.require(:rental).permit(:id, :equipment_id, :reason, :code, :reserve_schedule_date, :return_schedule_date, :status_id, :rental_user, :permission, :confirmation).merge(user_id: current_user.id)
+    params.require(:rental).permit(:id, :equipment_id, :reason, :code, :reserve_schedule_date, :return_schedule_date, :status_id, :rental_user, :permission, :confirmation, :lending).merge(user_id: current_user.id)
   end
 
   def set_rental

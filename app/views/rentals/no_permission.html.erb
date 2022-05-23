@@ -6,7 +6,7 @@
           <thead>
           <tr>
             <th>貸出機器</th>
-            <th>コード</th>
+            <th>型番</th>
             <th>貸出人氏名</th>
             <th>貸出予定日</th>
             <th>貸出日</th>
@@ -72,10 +72,10 @@
     <% if current_user.admin? %>
       <div class="row text-center" style="padding: 50px;">
         <div class="col">
-        <!-- 不許可 -->
+        <!-- 却下 -->
         <%= form_for(@rental, url: {controller: 'rentals', action: 'update' } ) do |f| %>
           <%= f.hidden_field :id, :value => @rental.id %>
-          <%= f.submit "不許可", class: "btn btn-danger" %>
+          <%= f.submit "却下", class: "btn btn-danger" %>
         <% end %>
         </div>
         <div class="col">

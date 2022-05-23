@@ -1,11 +1,11 @@
 ja:
   views:
-  pagination:
-    first: "&laquo;"
-    last: "&raquo;"
-    previous: "&lsaquo;"
-    next: "&rsaquo;"
-    truncate: "..."
+      pagination:
+        first: '最初'
+        last: '最後'
+        previous: '前'
+        next: '次'
+        truncate: '...'
   activerecord:
    attributes:
      user:
@@ -13,6 +13,6 @@ ja:
      rental:
        equipment_id: 機器の種類
        reason: 貸出理由
-       code: コード
+       code: 型番
        reserve_schedule_date: 貸出予定日
        return_schedule_date: 返却予定日

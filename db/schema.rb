@@ -35,6 +35,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_22_111419) do
     t.string "code"
     t.string "rental_user"
     t.string "reason"
+    t.string "lending"
     t.boolean "permission"
     t.boolean "confirmation"
     t.date "deleted_at"
@@ -46,6 +47,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_22_111419) do
 
   create_table "users", force: :cascade do |t|
     t.string "name", default: "", null: false
+    t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.boolean "admin", default: false
     t.date "deleted_at"

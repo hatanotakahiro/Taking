@@ -15,7 +15,7 @@
           <thead>
           <tr>
             <th>貸出機器</th>
-            <th>コード</th>
+            <th>型番</th>
             <th>貸出人氏名</th>
             <th>貸出予定日</th>
             <th>貸出許可日</th>
@@ -72,11 +72,11 @@
                         <% end %>
                         </div>
                         <div class="col">
-                        <!-- 不許可 -->
+                        <!-- 却下 -->
                         <%= form_for(@status, url: {controller: 'rentals', action: 'no_permission' } ) do |f| %>
                       <%= f.hidden_field :id, :value => r.id %>
                       <%= f.hidden_field :status_id, :value => r.status_id %>
-                          <%= f.submit "不許可", class: "btn btn-danger" %>
+                          <%= f.submit "却下", class: "btn btn-danger" %>
                         <% end %>
                         </div>
                       </div>
